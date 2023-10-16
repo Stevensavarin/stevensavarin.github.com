@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background: #0f3854;
+    background: radial-gradient(ellipse at center, #0a2e38 0%, #000000 70%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.reloj {
+    text-align: center;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+}
+
+.tiempo {
+    font-size: 4vw; /* Tamaño de fuente responsive */
+    margin-bottom: 10px;
+}
+
+.fecha {
+    font-size: 2vw; /* Tamaño de fuente responsive */
+}
