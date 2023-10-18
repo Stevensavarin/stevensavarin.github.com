@@ -18,7 +18,7 @@ function digitalClock(){
     let showSemana = (semana[diaSemana]);
     $fecha.innerHTML = `${anio}-${mes}-${dia} ${showSemana}`
 }
+
 setInterval(() => {
     digitalClock()
 }, 1000);
-
