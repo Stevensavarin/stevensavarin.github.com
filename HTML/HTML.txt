@@ -1,0 +1,90 @@
+<p>parrafo de texto</p> = p
+
+un u HTML es el conjunto de la etiqueta que abre, la que cierra y todo el contenido que hay entro de ella
+
+HTML: Un Lenguaje de Marcado
+ML: Markup Language
+HT: HyperText
+
+ML, Marcado: Hace referencia al uso de Etiquetas que describe el Texto y los Elementos que conforman el Doc.
+HT, Hipertexto: Hace referencia a la base de la Web y de HTML: Los LINKS (Enlaces, Hyperlinks)
+
+HYPER: Significa que no existe un Orden Lineal para moverse a través de los Links.
+
+Etiquetas: La w3schools tienen un listado con todas las Etiquetas que existen (en w3schools.com/TEgs/ref_byfunc.asp).
+*Se usan para definir los elementos HTML.
+
+Ejemplos de elementos:
+*Elemento común: Párrafo <p> Hola mundo </p> (Se identifican simplemente con etiquetas que tienen contenido).
+*Elemento sin contenido: Imágenes <img/> (Se identifican con etiquetas que se cierran a sí mismas, Self Closing Tags) .
+*Elemento que contiene otro elemento: Ejemplo: <div> <p> Elemento dentro </p> </div> (Comienza a formarse la Jerarquía del DOM).
+
+1989
+HTML fue inventado por Tim Berners-Lee en 1989.
+El documento se podía visualizar en el Navegador World Wide Web.
+El IETF (Internet Engineering Task Force) fue el que pensó que HTML debía ser un estandar:
+*Se creó un Organismo para crear las reglas de HTML.
+1993
+*Nació el W3C (World Wide Web Consortium/ Consorcio de la Red del Mundo Mundial)
+En este entonces el mundo navegaba con el 1er Navegador Popular llamado NCSA Mosaic.
+NCSA Mosaic:
+*Cliente de WWW
+*Desarrollado en el National Center for Supercomputing Applications en la Universidad de Illinois (UI) en Urbana-Champaign.
+*X Windows System, Microsoft Windows, Macintosh.
+Mozilla ataca a Mosaic.
+1994
+Mosaic lanza Netscape:
+*Consigue 3/4 de los usuarios de internet
+*Incorpora Java
+*Incorpora JavaScript --> HTML 2 
+1995
+HTML2:
+*Incorpora <head> y <body> para Tablas
+*Incorpora Imágenes, Tipografía, Input, Colores. 
+----
+*Se inventa CSS (Cascading Style Sheets)
+*Proponen HTML3 (el cual tenía etiquetas para cada navegador = caos)
+1997
+HTML3.2 :
+Se convierte en estandar de la industria.
+*Quitan las etiquetas para cada navegador.
+*Agregan las etiquetas <a>, <style> (CSS), <script> (JS) y <DIV> .
+---
+HTML4:
+Agregan Botones, y iFrames (Carga sitios dentro de sitios...) 
+2014
+HTML5:
+Se agregan inputs, videos, audios y el CANVAS.
+2017
+HTML5.2: Pequeños cambios 
+----
+Documento HTML
+HTML: Estructura y elementos
+CSS: presentación
+
+CSS
+Definen la presentación y estilo de los elementos del Documento HTML
+Hace esto, modificando las propiedades de estos elementos.
+Concepto de cascada:
+Cómo se elige qué valor tendrá una propiedad de un elemento HTML.
+Existe un Orden de Importancia (Precedencia), el cual depende de varios aspectos.
+
+Frameworks de CSS:
+Se esobreescribe las propiedades que se definieron en esta base.
+
+METADATOS
+Se especifican dentro de la etiqueta <head>
+Datos que describen otros datos
+
+Etiqueta <title>
+Toda pagina debe tener esta etiqueta
+Se ocupa en nombre de la pestaña en un navegador, título en google.
+
+Especificar el conjunto de caracteres
+Se usa la etiqueta <meta xxxx> la cual se usa multiples veces en el doc.
+
+Etiqueta <body>
+Contiene todo lo VISIBLE de nuestra página:
+texto, imégenes y elementos que forman el sitio
+
+https://www.w3schools.com/tags/ref_attributes.asp
