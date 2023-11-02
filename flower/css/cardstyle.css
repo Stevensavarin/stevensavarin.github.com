@@ -132,11 +132,10 @@ h4{
     text-align: right;
 }
 
-  /* CSS for customizing text below the card */
 .text-below-card{
-        font-size: 25px; /* Change the font size to your preference */
-        text-align: center; /* Center-align the text */
-        margin-top: 50px; /* Adjust the top margin to control the position */
+        font-size: 25px;
+        text-align: center;
+        margin-top: 50px;
 }
     
 .claim{
