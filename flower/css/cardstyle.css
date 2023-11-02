@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+body{
+    font-family: 'Indie Flower', cursive !important;
+    background: #FDE3A7;
+    margin: 0;
+    padding: 0;
+}
+
+::selection{
+    background: transparent;
+}
+
+h4{
+    font-size: 24px;
+    line-height: 1px;
+    font-family: 'Amatic SC', cursive !important;
+}
+
+.color1{
+    color: #1BBC9B;
+}
+
+.color2{
+    color: #C0392B;
+}
+
+.card{
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 10px 0 10px rgba(0, 0, 0, 0.3), 5px 0 30px rgba(0, 0, 0, 0.3);
+    transition: 1s;
+}
+
+.card:hover{
+    transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.3), 0 10px 100px rgba(0, 0, 0, 0.3);
+}
+
+.card:before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #BAC1BA;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.card:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92A29C;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: 0.7s;
+}
+
+.card .bark{
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.card .imgBox img{
+    min-width: 250px;
+    max-height: 400px;
+}
+
+.card:hover .imgBox{
+    transform: rotateY(-135deg);
+}
+
+.card:hover .bark{
+    opacity: 1;
+    transition: 0.6s;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.3) inset;
+}
+
+.card .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 0 0 20px;
+    z-index: -1;
+    margin-top: 30px;
+}
+
+.card .details p{
+    font-size: 15px;
+    line-height: 5px;
+    padding: 0 0 0 20px;
+    margin-top: -0.5px;
+}
+
+.card .details h4{
+    text-align: center;
+    margin-top: 1px;
+}
+
+.gift{
+    text-align: left;
+    margin-top: -20px;
+}
+
+.text-right{
+    text-align: right;
+}
+
+  /* CSS for customizing text below the card */
+.text-below-card{
+        font-size: 25px; /* Change the font size to your preference */
+        text-align: center; /* Center-align the text */
+        margin-top: 50px; /* Adjust the top margin to control the position */
+}
+    
+.claim{
+    text-align: left;
+    margin-top: 1px;
+}
