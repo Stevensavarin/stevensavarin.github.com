@@ -5,16 +5,16 @@
 :root {
     --primary-color: #181F1C;
     --secondary-color: #203023;
-    --accent1-color: #274029;
+    --accent1-color: #d6e7d3;
     --accent2-color: #315C2B;
 
     --heading-font: 'Roboto', serif;
     --paragraph-font: 'Poppins', serif;
 
-    --nav-background-color: #181F1C;
+    --nav-background-color: #d6e7d3;
     --nav-link-color: #203023;
     --nav-hover-link-color: #274029;
-    --nav-hover-background-color: #315C2B;
+    --nav-hover-background-color: #ffffff;
 }
   
 body {
