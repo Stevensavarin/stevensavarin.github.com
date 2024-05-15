@@ -64,6 +64,11 @@ h1 {
     margin: 1rem;
 }
 
+.line {
+    color: steelblue;
+    border-bottom: 1px solid steelblue;
+}
+
 main img {
     width: 132px;
     height: auto;
