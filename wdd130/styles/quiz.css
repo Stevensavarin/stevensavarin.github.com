@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    background: #fff;
+}
+
+h1 {
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: navy;
+    text-align: center;
+}
+
+form {
+    width: 650px;
+    margin: 0 auto;
+    padding: 1rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    background-color: #eee;
+    display: grid;
+}
+
+label, input, button, select, textarea {
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+label {
+    text-align: left;
+}
+
+label[for="q1"] {
+    margin-top: 1rem;
+}
+
+.quiz{
+    padding: 1.5rem;
+}
+
+input, select, textarea {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+}
+
+button {
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.form-item {
+    display: grid;
+    align-items: center;
+    margin: 1rem 0 1rem 0;
+}
+
+.number {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: navy;
+}
+
+.code {
+    display: inline-block;
+    background-color: rgb(57, 57, 61);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 25rem;
+    margin-left: 6rem;
+    margin-top: 0.5rem;
+}
+
+footer {
+    margin: 1rem auto 0;
+    width: 650px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-size: 0.8em;
+    color: #777;
+    border-top: 1px solid #ccc;
+}
+
