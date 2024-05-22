@@ -210,6 +210,115 @@ figcaption {
     text-align: center;
 }
 
+/* contact us section*/
+
+.contact h1 {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.contact h3{
+    margin-bottom: 0.5rem;
+}
+
+.contact p, h3 {
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    padding: 4px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 50%;
+    gap: 10px;
+    text-align: left !important;
+    line-height: 2rem;
+    margin-top: 12px;
+}
+
+.contact-container h1{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 18px;
+} 
+
+figure img {
+    max-width: 100%;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.contact-container img{
+    width: 350px;
+    height: auto;
+}
+
+label{
+    font-weight: bold;
+}
+
+.contact-container
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    padding: 6px;
+    width: 100%;
+    font-weight: 200;
+}
+
+
+.radio-group {
+    display: block;
+    gap: 5px;
+    align-items: left;
+}
+
+
+.radio-group input[type="radio"] {
+    margin: 0;
+    padding: 2px;
+    appearance: none;
+    border: 1px solid #6b2700;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+
+.radio-group label {
+    font-size: 16px;
+    color: black;
+}
+
+.radio-group input[type="radio"]:checked {
+    background-color: #6b2700;
+}
+
+.contactbutton, .newsletterbutton {
+    background-color: #000080;
+    color: #fff;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.contactbutton:hover {
+    background-color: darkgreen;
+}
+
+.newsletterbutton {
+    background-color: var(--accent2-color) !important;
+}
+
 /* footer section */
 
 footer {
@@ -241,4 +350,4 @@ footer p {
 .sociallinks img {
     width: 25px;
     height: auto;
-  }
+}
