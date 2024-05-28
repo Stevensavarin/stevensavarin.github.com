@@ -142,6 +142,17 @@ article img {
     padding: 15px;
 }
 
+.hero>.hero2 {
+    position: absolute;
+    width: 30%;
+    top: 70%;
+    right: 8%;
+    background-color: #56ac4c;
+    border-radius: 24px;
+    padding: 12px;
+    opacity: 0.9;
+  }
+
 /* history section */
 
 .history {
@@ -222,7 +233,11 @@ figcaption {
     margin-bottom: 0.5rem;
 }
 
-.contact p, h3 {
+.contact h3 {
+    align-items: center;
+}
+
+.contact p {
     text-align: justify;
     font-size: 1.1rem;
     line-height: 1.5rem;
@@ -249,7 +264,7 @@ figure img {
     height: 150px;
     display: block;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
 .contact-container img{
@@ -390,6 +405,58 @@ select {
     margin-top: 1rem;
 }
 
+/*INDEX CONTENT*/
+.indexContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.indexContent p {
+  text-align: left;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  margin-top: 0.5rem;
+}
+
+.indexContent img {
+  width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 26px;
+}
+
+.indexContent button {
+  background-color: var(--accent2-color);
+  color: var(--secondary-color);
+  font-size: var(--paragraph-font);
+  border: 0;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 8px 16px;
+  float: left;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px 0 rgba(0,0,0,0.5);
+  margin-top: 0.5rem;
+}
+
+.indexContent input {
+  padding: 8px;
+  margin: 2px;
+}
+
+.indexContent h3 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.bonus{
+    margin-left: 1.1rem;
+    font-weight: 800;
+}
+
 /* footer section */
 
 footer {
@@ -399,6 +466,7 @@ footer {
     background-color: var(--nav-background-color);
     padding: 10px;
     text-align: center;
+    margin-top: 0.5rem;
 }
 
 footer p {
