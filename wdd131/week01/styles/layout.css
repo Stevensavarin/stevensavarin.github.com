@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --back_color1: #100425;
+    --back_color2: #DC00D3;
+    --back_color3: #0CFAF5;
+    --text_color1: #ffffff;
+    --text_color2: #000000;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+    background: #fff;
+}
+
+header {
+    background-color: var(--back_color1);
+}
+
+h1 {
+    font-size: 1.5rem;
+    text-align: left;
+    padding: 10px 20px 10px 20px;
+    color: white;
+}
+
+nav {
+    flex: 1 1 100%;
+    display: block;
+	color: white;
+    padding: 5px;
+    display: flex;
+	background-color: #ffffff18;
+	align-items: center;
+    border: 1px solid var(--back_color3);
+}
+
+nav a {
+    flex: 1 1 100%;
+	display: block;
+	color: white;
+	padding: 0.75rem;
+	text-decoration: none;
+	text-align: center;
+    font-weight: bold;
+}
+
+nav a:hover {
+	font-weight: 700;
+    color: black;
+    background-color: var(--back_color2);
+	text-decoration: none;
+}
+
+footer  {
+    min-height: 160px;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: var(--back_color1);
+    border-top: 1px solid var(--back_color3);
+}
+
+section, aside {
+    text-align: left;
+    padding: 20px 10px 100px 20px;
+}
+
+p {
+	text-align: left;
+	font-size: 1.2rem;
+}
+
+/*CLASSES*/
+
+.grid-container { 
+    display: grid;    
+    max-width: 100%;
+    margin: 0 auto;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.wrap {
+	flex-wrap: wrap;
+}
+
+.grid-item1 {
+    grid-column: 1 / span 3;
+    background-color: var(--back_color1);
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 20px 10px 250px 20px;
+}
+
+.grid-item2 {
+    grid-column: 4;
+    background-color: white;
+    font-size: 1.2rem;
+} 
+
+.grid-item5 {
+    grid-column: 1 / 5;
+}  
