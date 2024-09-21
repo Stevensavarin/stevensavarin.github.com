@@ -55,7 +55,6 @@ nav a {
 }
       
 nav a:hover {
-    font-weight: 700;
     color: black;
     background-color: var(--color2);
     text-decoration: none;
@@ -82,7 +81,6 @@ footer {
 
 
 h1 {
-    font-size: 1.5rem;
     text-align: center;
     padding: 20px;
     color: white;
@@ -90,7 +88,6 @@ h1 {
 
 
 h2 {
-    font-size: 1.2rem;
     padding: 0.5rem;
     text-align: center;
     margin: auto;
@@ -101,7 +98,6 @@ h2 {
 }
 
 h3 {
-    font-size: 1rem;
     text-align: center;
     padding: 0px;
     color: black;
