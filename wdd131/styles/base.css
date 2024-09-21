@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --background_color1: #100425;
+    --color2: #DC00D3;
+    --color3: #0CFAF5;
+    --text_color1: #ffffff;
+    --text_color2: #000000;
+}
+
+header {
+    padding: 0px;
+    background-color: var(--background_color1);
+    border: 1px solid var(--color3);
+}
+
+.name {
+    font-size: 1.5rem;
+    color: var(--color3);
+    font-style: oblique;
+}
+
+#changes {
+    font-size: 1rem;
+    color: var(--color3);
+    font-style: oblique;
+}
+
+nav {
+    flex: 1 1 100%;
+    display: block;
+    color: white;
+    padding: 5px;
+    display: flex;
+    background-color: #7a7a7a27;
+    align-items: center;
+}
+      
+nav a {
+    flex: 1 1 100%;
+    display: block;
+    color: white;
+    padding: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+      
+nav a:hover {
+    font-weight: 700;
+    color: black;
+    background-color: var(--color2);
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    padding: 0.5rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: var(--background_color1);
+    border: 1px solid var(--color3);
+    text-align: center;
+    padding: 1rem;
+}
+
+
+h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+
+h2 {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin: auto;
+    background-color: var(--background_color1);
+    color: white;
+    border-top-left-radius: 8px 8px;
+    border-top-right-radius: 8px 8px;
+}
+
+h3 {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0px;
+    color: black;
+    margin: 3rem 1rem 1rem 1rem;
+}
+
+p {
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+div img {
+    width: 150px;
+    height: auto;
+    border: 1px solid var(--color2);
+    padding: 2px;
+    box-shadow: 0 0 30px rgb(0, 0, 0);
+    float: right;
+    margin: 1rem;
+}
+
+.img-left {
+    width: 150px;
+    height: auto;
+    border: 1px solid var(--color2);
+    padding: 2px;
+    box-shadow: 0 0 30px gray;
+    float: left;
+    margin: 1rem;
+}
+
+hr { 
+    display: block;
+    margin: 0.5em 1rem 0.5rem 1rem;
+    border-style: inset;
+    border-width: 1px;
+}
+  
+
+/* Class Selectors */
+
+.grid-container {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 2fr 1fr;
+    padding: 0.5rem;
+}
+
+.rounded-box1 {
+    border-radius: 10px;
+    border: 2px solid var(--color3);
+    margin: 0.5rem auto;
+    grid-column: 1 / 2;
+    height: auto;
+}
+
+.rounded-box2 {
+    border-radius: 10px;
+    border: 2px solid var(--color3);
+    margin: 0.5rem auto;
+    height: auto;
+}
+
+ul{
+    padding: 2rem;
+}
+
+li {
+    margin: 0.3rem 0;
+}
