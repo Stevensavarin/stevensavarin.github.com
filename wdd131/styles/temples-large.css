@@ -1,0 +1,30 @@
+@media screen and (min-width: 780px) {
+    header {
+		display: flex;
+		align-items: flex-end;
+	    justify-content: space-between;
+	}
+	
+	#layout {
+		flex-direction: row;
+	}
+
+	#menu {
+		display: none;
+	}
+
+	.navigation {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	.navigation a {
+		display: block;
+		flex: 1 1 100%;
+	}
+    .navigation a:hover {
+        background-color: #DC00D3;
+        color: #333;
+        font-weight: 700;
+    }
+}
