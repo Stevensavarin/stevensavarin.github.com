@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --color1: rgb(107, 200, 253);
+    --color2: rgb(189, 237, 248);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: var(--color1);
+    margin: 0 auto;
+}
+
+header, footer {
+    padding: 20px 0;
+    background-color: var(--color2);
+    text-align: center;
+}
+
+
+h1{
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+}
+
+h2{
+    background-color: var(--color2);
+    text-align: center;
+    margin: 0;
+}
+
+li{
+    list-style: none;
+}
+
+#weather-icon {
+    margin-top: 0.5rem;
+}
+
+#weather b::after {
+    content: "  ";
+    position: absolute;
+    right: 10px;
+}

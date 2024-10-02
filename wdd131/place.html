@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WDD 131 - Country page by Steven Savarin">
+    <meta name="author" content="Steven Savarin">
+    <meta name="keywords" content="Steven, Savarin, WDD, 131">
+    <link rel="stylesheet" href="styles/country.css">
+    <link rel="stylesheet" href="styles/country-large.css">
+    <title>Country Page - Steven Savarin</title>
+</head>
+<body>
+    <header>
+        <h1>Madrid, Spain</h1>
+    </header>
+    <main>
+        <div class="hero-img">
+            <picture>
+                <source srcset="images/spain.webp" media="(min-width: 1000px)">
+                <img src="images/spain.webp" alt="A riverside view of the Charles Bridge and Prague Castle">
+            </picture>   
+        </div>
+
+        <div id="data">
+            <h2>Data</h2>
+            <ul>
+                <li><b>Area:</b> 605,77 km&sup2;</li>
+                <li><b>Population:</b> 47.4 million</li>
+                <li><b>Capital:</b> Madrid</li>
+                <li><b>Language:</b> Spanish</li>
+                <li><b>Currency:</b> Euro (€)</li>
+                <li><b>Time Zone:</b> CEST</li>
+            </ul>
+        </div>
+        <div id="weather">
+            <h2>Weather</h2>
+            <img id="weather-icon" src="images/weather-icon-3.svg" alt="weather icon" width="50">
+                <ul>
+                    <li><b>Temperature:</b> 24° C</li>
+                    <li><b>Conditions:</b> Sunny</li>
+                    <li><b>Wind:</b> 14 Km/h</li>
+                    <li><b>Humidity:</b> 54%</li>
+                    <li><b>Wind Chill:</b> <span id="wind-chill-factor">N/A</span></li>
+                </ul>
+        </div>
+    </main>
+    <footer>
+        <p id="name"></p>
+        <p id="changes"></p>
+    </footer>
+    <script src="scripts/getdates.js" defer></script>
+</body>
+</html>
