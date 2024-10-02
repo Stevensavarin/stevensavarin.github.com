@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD 131 - W03 - Responsive Images">
+    <meta name="author" content="Steven Savarin">
+    <meta name="keywords" content="Steven, Savarin, WDD, 131">
+    <link rel="stylesheet" href="styles/responsive-images.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+
+    <title>Responsive Images</title>
+</head>
+<body>
+    <main>
+        <div class="hero">
+            <picture>
+              <source srcset="images/hero-large.webp" media="(min-width: 1000px)">
+              <source srcset="images/hero-medium.webp" media="(min-width: 500px)">
+              <img src="images/hero-small.webp" alt="Aba Nigeria Temple" width="500" height="250">
+            </picture>
+          </div>
+    </main>
+
+</body>
+</html>
