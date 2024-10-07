@@ -1,12 +1,5 @@
-// File: filtered-temples.js
-// Store the selected elements that we are going to use. 
 const navigation = document.querySelector('#menu');
 
-// const navigation = document.querySelector('.navigation')
-
-//--------------------------------------------------------
-// Using the ".show" class definition from templs.css
-//--------------------------------------------------------
 menu.addEventListener('click', () => {
 	toggleMenuButton();
 });
@@ -105,7 +98,6 @@ const temples = [
 	// Add more temple objects here...
 ];
 
-// Call the createTempleCard() function (defined below)
 createTempleCard(temples, "Home Page");
 
 const homelink = document.querySelector("#home");
@@ -116,8 +108,7 @@ const newlink = document.querySelector("#new");
 const largelink = document.querySelector("#large");
 const smalllink = document.querySelector("#small");
 
-// Anonymous () function definitions
-// Home button - get all temples
+
 homelink.addEventListener('click', () => {
 	let hometemple = temples;
 	createTempleCard(hometemple, "Temples Home Page");
@@ -154,38 +145,33 @@ smalllink.addEventListener('click', () => {
 })
 
 function createTempleCard(filteredTemples, pagename) {
-	// clear out last selected list of temples
 	document.querySelector(".container").innerHTML="";
 	document.querySelector("#pagename").innerHTML="";
 
-	// Add page Title
-	// let pagename = "Home Page";
 	let h2Title = document.createElement("h2");
 	h2Title.innerHTML = `<h2 class="home">${pagename}</h2>`;
 	document.querySelector("#pagename").appendChild(h2Title);
 
-	// Foreach temple in the temples Array, do the following
-	filteredTemples.forEach(temple => {
-		let card       = document.createElement("div");
-		card.classList.add("card");
-		// Above - add class="card" to the above <div class="card">
-		// Since img is part of <div>, it will use the class: .card img
 
-		let name       = document.createElement("h3");
-		let location   = document.createElement("p");
+	filteredTemples.forEach(temple => {
+		let card = document.createElement("div");
+		card.classList.add("card");
+
+		let name = document.createElement("h3");
+		let location  = document.createElement("p");
 		let dedication = document.createElement("p");
-		let area       = document.createElement("p");
-		let img        = document.createElement("img");
+		let area = document.createElement("p");
+		let img = document.createElement("img");
 
 		name.textContent = temple.templeName;
 		location.innerHTML   = `<span class="label">Location: </span> ${temple.location}`;
 		dedication.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
 		area.innerHTML       = `<span class="label">Size:     </span> ${temple.area} sq ft`;
-		img.setAttribute("src",     temple.imageUrl);
-		img.setAttribute("alt",     `${temple.templeName} Temple`);
+		img.setAttribute("src", temple.imageUrl);
+		img.setAttribute("alt", `${temple.templeName} Temple`);
 		img.setAttribute("loading", "lazy");
-		img.setAttribute("width",   "398");
-		img.setAttribute("height",  "250");
+		img.setAttribute("width", "398");
+		img.setAttribute("height", "250");
 
 		card.appendChild(img);
 		card.appendChild(name);
