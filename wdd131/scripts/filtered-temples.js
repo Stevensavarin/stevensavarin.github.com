@@ -76,7 +76,7 @@ const temples = [
 		location: "Lake Oswego, Oregon, United States",
 		dedicated: "1989, August, 19",
 		area: 80500,
-		imageUrl: "./images/Portland-Oregon-Temple.png",
+		imageUrl: "./images/portland-oregon-temple.png",
 			// "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
 	},
 	{
@@ -84,7 +84,7 @@ const temples = [
 		location: "Provo, Utah, United States",
 		dedicated: "2016, March, 20",
 		area: 85084,
-		imageUrl: "./images/Provo-City-Center-Temple.png",
+		imageUrl: "./images/provo-city-center-temple.png",
 			// "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
 	},
 	{
