@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --background_color1: #100425;
+    --color2: #DC00D3;
+    --color3: #0CFAF5;
+    --text_color1: #ffffff;
+    --text_color2: #000000;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 1rem;
+    margin-bottom: .2rem;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: var(--background_color1);
+    padding: 1rem;
+    color: white;
+    border: 5px solid var(--background_color1);
+}
+
+
+main {
+    position: relative;
+    padding: 1rem;
+    background-color: var(--color2);
+    min-width: 200px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: var(--background_color1);
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: left;
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+    margin: 10px;
+}
+
+.features label {
+    font-size: 1.1rem;
+}
+
+#feature1, #feature2 {
+    font-weight: 100;
+}
+
+textarea {
+    background-color: white;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.pad {
+    padding-bottom: 1rem;
+}
+
+.stars label {
+    float: left;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.features p {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.textreview {
+    margin-top: 1rem;
+}
+
+.stars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    color:white;
+}
+
+.thanks {
+    text-align: center;
+}
+
+#submit {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--color3);
+    border-width: 2px;
+    margin: 1rem auto;
+    border-color: white;
+}
+
+#prodName, #installDate, #review, #name, #submit {
+    font-size: 1.2rem;
+    padding: .2rem;
+    width: 100%;
+}
+
+.install {
+    margin-bottom: 1rem;
+}
+
+
+input[type=text] {
+    background-color: white;
+    font-size: 1.2rem;
+}
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="WDD 131 - Form - Steven Savarin">
+        <meta name="author" content="Steven Savarin">
+        <meta name="keywords" content="Steven, Savarin, WDD, 131">
+        <link rel="stylesheet" href="styles/form.css">    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <title>Form Page - Steven Savarin</title>
+    </head>
+<body>
+    <div class="container">
+    <header>
+        <h1>Product Review</h1>
+    </header>
+
+    <main>
+        <form method="get" action="review.html">  
+            <section id="productName">
+                <h2>Product Name</h2>
+
+                <select name="prodName" id="prodName" required>
+                    <option value="" disabled selected>Choose a Product</option>
+                </select>
+            </section>
+
+            <h2>Overall Rating</h2>
+            <div class="stars">
+                <label for="rating1">☆<br><input type="radio" id="rating1" name="stars" value="1star" required></label>
+                <label for="rating2">☆☆<br><input type="radio" id="rating2" name="stars" value="2star" required></label>
+                <label for="rating3">☆☆☆<br><input type="radio" id="rating3" name="stars" value="3star" required></label>
+                <label for="rating4">☆☆☆☆<br><input type="radio" id="rating4" name="stars" value="4star" required></label>
+                <label for="rating5">☆☆☆☆☆<br><input type="radio" id="rating5" name="stars" value="5star" required></label>
+            </div>
+
+            <div class="install">
+                <label for="installDate">Date of Installation</label>
+                <input type="date" id="installDate" name="installDate" required>
+            </div>
+
+            <div class="features">
+                <label>Which features did you find useful in the product?</label>
+                <p>(Check all that apply)?</p>
+
+                <input type="checkbox" id="feature1" name="feature1" value="">
+                <label for="feature1">Durability</label><br>
+
+                <input type="checkbox" id="feature2" name="feature2" value="">
+                <label for="feature2">Ease of Use</label><br>
+
+                <input type="checkbox" id="feature3" name="feature3" value="">
+                <label for="feature3">Performance</label><br>
+                
+                <input type="checkbox" id="feature4" name="feature4" value="">
+                <label for="feature4">Design</label><br>
+            </div>
+
+            <div class="textreview">
+                <label for="review">Written Review (optional)</label>
+                <textarea id="review" name="review" rows="4" placeholder=""></textarea>
+
+                <label for="name">Your Name (optional)</label>
+                <input type="text" id="name" name="name" value="">
+            </div>
+
+            <input type="submit" name="submit" id="submit" value="Post Review">
+        </form>
+    </main>
+
+    <footer>
+        <span id="names"></span>
+        <span id="changes" ></span>
+    </footer>
+    </div>
+    <script src="scripts/form.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+</body>
+</html>
