@@ -1,30 +1,30 @@
 const products = [
     {
-      id: "el-3021",
-      name: "Energy Loop",
-      averagerating: 4.8
+      id: "fc-1888",
+      name: "flux capacitor",
+      averagerating: 4.5
     },
     {
-      id: "gr-2077",
-      name: "Gravity Boots",
-      averagerating: 4.2
+      id: "fc-2050",
+      name: "power laces",
+      averagerating: 4.7
     },
     {
-      id: "ct-2099",
-      name: "Chrono Tracker",
-      averagerating: 4.0
+      id: "fs-1987",
+      name: "time circuits",
+      averagerating: 3.5
     },
     {
-      id: "ss-2100",
-      name: "Solar Shield",
-      averagerating: 3.8
+      id: "ac-2000",
+      name: "low voltage reactor",
+      averagerating: 3.9
     },
     {
-      id: "hv-1985",
-      name: "Hyper Velocity Engine",
+      id: "jj-1969",
+      name: "warp equalizer",
       averagerating: 5.0
     }
-  ];
+  ]
 
 products.forEach(product => {
   let productHTML = document.createElement("option");
