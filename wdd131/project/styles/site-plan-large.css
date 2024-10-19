@@ -1,0 +1,52 @@
+@media (max-width: 1024px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    a {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    a {
+        padding: 0.7rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    a {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .wireframe a:last-child {
+        margin-left: 1rem;
+    }
+}
