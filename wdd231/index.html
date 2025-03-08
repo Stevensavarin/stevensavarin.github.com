@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page">
+    <meta name="author" content="Steven Savarin">
+
+    <link rel="icon" href="images/steven.jpg">
+
+    <meta property="og:title" content="Home | Steven Savarin">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/mapa-de-venezuela.avif">
+    <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>Home | Steven Savarin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style-large.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <img class="avatar" src="images/steven.jpg" alt="Steven Savarin photo">
+        </div>
+        <h1>Steven Savarin</h1>
+        <button id="menu" title="Menu"></button>
+    </header>
+    <nav>
+        <ul>
+            <li><a class="active" href="/index.html">Home</a></li>
+            <li><a href="https://github.com/Stevensavarin" target="_blank">GitHub Profile</a></li>
+            <li><a href="https://www.linkedin.com/in/steven-savarin/" target="_blank">LinkedIn Profile</a></li>
+            <li><a href="chamber/index.html" target="_blank">Chamber</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="courseWork-box">
+            <h2>Course Work</h2>
+            <ul>
+                <li>Chamber of Commerce Site Planning</li>
+                <li>Chamber of Commerce Directory Page</li>
+                <li>Chamber Home Page</li>
+                <li>Chamber Membership Application Form / Project Subject Proposal</li>
+                <li>Chamber Discover Page / Project Site Plan
+                </li>
+                <li>Individual Website Project</li>
+                <li>Final Exam Test</li>
+            </ul>
+        </section>
+        <section class="country-box">
+            <h2>Venezuela</h2>
+            <picture>
+                <source media="(min-width: 768px)" srcset="images/mapa-de-venezuela.avif">
+                <source media="(min-width: 1024px)" srcset="images/mapa-de-venezuela.avif">
+
+                <img src="images/mapa-de-venezuela.avif" alt="Panama" width="300" height="225">
+            </picture>
+            <p>Venezuela</p>
+        </section>
+        <section class="certificate-box">
+            <h2>Web and Computer Programming Certificate</h2>
+            <div class="boxButton">
+                <button class="courseButton" value="all" title="Filter button">All</button>
+                <button class="courseButton" value="cse" title="Filter button">CSE</button>
+                <button class="courseButton" value="wdd" title="Filter button">WDD</button>
+            </div>
+            <div class="boxcertificate01 boxCourse"></div>
+            <dialog id="courses-details"></dialog>
+            <p id="totalCreditsCert01">Total Credits for Certificate 1: 0</p>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> Steven Savarin |
+            Venezuela</p>
+        <p id="lastModified"></p>
+        
+    </footer>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/courses.js" defer></script>
+</body>
+
+</html>
+
+<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="styles/normalize.css"-->
+
