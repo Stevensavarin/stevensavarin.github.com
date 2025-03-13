@@ -1,0 +1,68 @@
+{
+    "companies": [
+      {
+        "name": "Empresas Polar",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "+58 212-2021211",
+        "url": "https://www.empresaspolar.com/",
+        "imageurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7t0uOKGjYji8sqAYR_s-DP742xSaF87oxA&s",
+        "memberLevel": 3,
+        "additionalInfo": "Alimentos y Bebidas"
+      },
+      {
+        "name": "Mercantil Banco",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "+58 212-5032111",
+        "url": "https://www.mercantilbanco.com/",
+        "imageurl": "https://files.socialgest.net/mybio/5f529398b36f8_1599247256.png",
+        "memberLevel": 3,
+        "additionalInfo": "Servicios Financieros"
+      },
+      {
+        "name": "CANTV",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "0800-CANTV-00",
+        "url": "https://www.cantv.com.ve/",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Cantv_logo.PNG",
+        "memberLevel": 2,
+        "additionalInfo": "Telecomunicaciones"
+      },
+      {
+        "name": "Farmatodo",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "+58 212-9774911",
+        "url": "https://www.farmatodo.com.ve/",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Farmatodo_logo.svg/1200px-Farmatodo_logo.svg.png",
+        "memberLevel": 2,
+        "additionalInfo": "Farmacias"
+      },
+      {
+        "name": "AeroMéxico Venezuela",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "+58 212-9531150",
+        "url": "https://aeromexico.com/es-ve",
+        "imageurl": "https://brouo.com/v5/wp-content/uploads/2024/09/logotipo-aeromexico-reciente-e1727459494850.webp",
+        "memberLevel": 1,
+        "additionalInfo": "Aerolínea"
+      },
+      {
+        "name": "Banesco",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "+58 212-5011111",
+        "url": "https://www.banesco.com/",
+        "imageurl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51RUy7kvYdBLBcJkb0nW8HYWi9M8nrZmVPA&s",
+        "memberLevel": 3,
+        "additionalInfo": "Banco"
+      },
+      {
+        "name": "Digitel",
+        "address": "Caracas, Venezuela",
+        "phoneNumber": "0412-0000000",
+        "url": "https://www.digitel.com.ve/",
+        "imageurl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/DigitelNuevo.jpg",
+        "memberLevel": 2,
+        "additionalInfo": "Telecomunicaciones"
+      }
+    ]
+  }
+  

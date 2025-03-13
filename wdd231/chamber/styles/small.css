@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+    --back_color1: #002B5B;
+    --back_color2: #004080;
+    --back_color3: #E5ECF4;
+    --accent_color1: #F9A825;
+    --accent_color2: #F1F1F1;
+    --accent_color3: #FFFFFF;
+    --accent_color4: #C62828;
+    --wild_red: #B71C1C;
+    --sunburst_red: #8B0000;
+    --active_yellow: #FFD600;
+    --neutral_white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Helvetica, sans-serif;
+}
+
+header, footer {
+    background-color: var(--back_color2);
+    padding: 1rem;
+    color: var(--neutral_white);
+    justify-content: center;
+}
+
+header, body {
+    margin: 0 auto;
+    max-width: 1900px;
+    padding: 0.5rem;
+}
+
+header {
+    display: flex;
+    color: var(--neutral_white);
+}
+
+header a {
+    color: var(--neutral_white);
+}
+
+header a:hover {
+    background-color: var(--back_color1);
+    color: var(--active_yellow);
+}
+
+/* NAVIGATION STUFF HERE */
+nav {
+    background-color: var(--back_color1);
+}
+
+#myButton::before {
+    content: "\2630";
+}
+
+#myButton {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--neutral_white);
+    cursor: pointer;
+    width: 100%;
+    text-align: right;
+    padding: .25rem 2vw;
+}
+
+ul.menuLinks li a {
+    display: block;
+    padding: .75rem 2vw;
+    color: var(--neutral_white);
+    text-decoration: none;
+}
+
+li.current-menu-item a {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+ul.menuLinks {
+    list-style-type: none; 
+    padding: 0;
+}
+
+#myButton.open::before {
+    content: "x";
+}
+
+nav {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
+}
+
+nav ul {
+    overflow: hidden;
+}
+
+nav.open {
+    grid-template-rows: 1fr;
+}
+
+main {
+    display: grid;
+    row-gap: 1px;
+    max-width: 90%;
+    margin: 1rem 5rem;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 5px;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 2rem;
+    grid-row: 3 / 4;
+}
+
+h2 {
+    grid-row: 1 / 4;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#home {
+    background-color: var(--wild_red);
+    display: block;
+}
+
+#buss {
+    background-color: var(--accent_color1);
+    padding: 0 1rem;
+    grid-column: 1 / 4;
+}
+
+.pad {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.events {
+    grid-column: 1 / 2;
+    padding: 0 1rem;
+}
+
+.other1 {
+    grid-column: 2 / 3;
+    background-color: var(--active_yellow);
+    padding: 0 1rem;
+}
+
+.other2 {
+    grid-column: 3 / 4;
+    padding: 0 1rem;
+}
+
+.container {
+    display: grid;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    color: var(--neutral_white);
+    background-color: var(--back_color2);
+    padding: 0.5rem;
+}
+
+.hero-text button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px 25px;
+    color: var(--back_color1);
+    background-color: var(--accent_color3);
+    text-align: center;
+    cursor: pointer;
+}
+
+.hero-text button:hover {
+    background-color: var(--active_yellow);
+}
+
+.social {
+    align-content: center;
+}
+
+footer.container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cards {
+    margin-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
+
+.stats p {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5rem;
+}
+
+.label {
+    text-align: right;
+    color: var(--active_yellow);
+}
+
+section {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--accent_color2);
+    color: var(--back_color1);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#cards p {
+    font-size: 0.75rem;
+}

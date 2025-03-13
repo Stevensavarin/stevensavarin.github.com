@@ -1,0 +1,32 @@
+@media only screen and (min-width: 650px) {
+ 
+    #myButton {
+        display: none;
+    }
+
+    ul.menuLinks, ul.menuLinks.open {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: baseline;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    ul.menuLinks a:hover {
+        background-color: rgba(255,255,255,0.2);;
+    }
+
+    nav {
+        grid-template-rows: 1fr;
+
+    }
+
+    .pad {
+        margin: 1rem 0 0.5rem 0;
+        text-align: center;
+    }
+
+    #home {
+        display: grid;
+    }
+    
+}

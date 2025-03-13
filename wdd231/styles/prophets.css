@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 18px;
+	font-family: "Poppins", Helvetica, sans-serif;
+	color: #fff;
+}
+
+h1 {
+	border-bottom: 1px solid #000;
+	padding: 15px;
+	background-color: rgb(27, 11, 31, 1);
+}
+
+h2 {
+	padding: .5rem;
+}
+
+#emessage {
+	visibility: hidden;
+	margin: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 0.5rem;
+	font-size: 0.8rem;
+	background-color: indianred;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	border-bottom: 1px solid #bbb;
+}
+
+
+.cards {
+	margin-left: 1rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+	grid-gap: 1rem;
+}
+
+section {
+	margin: 1rem;
+	padding: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: rgb(27, 11, 31, 1);
+	color: #fff;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-items: center;
+}
+
+.highlight {
+	color: navy;
+}
+
+section img {
+	width: 240px;
+	height: auto;
+	border: 1px solid #fff;
+	box-shadow: 0 0 20px #fff;
+	margin-top: 1rem;
+}
+
+input,
+select,
+textarea,
+button {
+	padding: 0.5rem;
+	margin: 0.5rem;
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.active {
+	color: #fff;
+	background-color: #000;
+}
+
+button {
+	width: 150px;
+}
+
+button:hover {
+	background-color: yellow;
+	color: #000;
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.stats {
+	margin: 0.5rem;
+	border: 1px solid #fff;
+	padding: 1rem;
+	background-color: #000;
+}
+
+.stats p {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0.5rem;
+}
+
+.label {
+	text-align: right;
+	color: yellow;
+}
