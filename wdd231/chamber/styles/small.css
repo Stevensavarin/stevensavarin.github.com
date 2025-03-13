@@ -47,6 +47,11 @@ header a:hover {
     color: var(--active_yellow);
 }
 
+.logo-img {
+    width: 100px;
+    height: 74px;
+}
+
 /* NAVIGATION STUFF HERE */
 nav {
     background-color: var(--back_color1);
