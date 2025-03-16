@@ -13,6 +13,7 @@
     <meta property="og:image" content="https://Stevensavarin.github.io/wdd231/chamber/images/Valencia_Venezuela.webp">
     <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/chamber/directory.html#">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/large.css">
@@ -21,7 +22,6 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">    
         
     <title>Valencia Cbo - Chamber of Commerce</title>
 </head>
@@ -30,50 +30,61 @@
         <div>
             <img src="images/venezuela_map.png" alt="Chamber Logo" class="logo-img">
         </div>
-        <div class="pad">Valencia Cbo - Chamber of Commerce</div>
+        <div class="pad">
+            <h1>Valencia Cbo - Chamber of Commerce</h1>
+        </div>
         <button id="myButton"></button>
     </header>
 
     <nav id="animate">
        <ul class="menuLinks">
-           <li class="current-menu-item"><a href="#" title="Home">Home</a></li>
+           <li><a href="#" title="Home">Home</a></li>
            <li><a href="#" title="Discover">Discover</a></li>
-           <li><a href="#" title="Businesses">Directory</a></li>
+           <li><a href="directory.html" title="Businesses">Directory</a></li>
            <li><a href="#" title="Join">Join</a></li>
        </ul>
    </nav>
 
     <main>
        <h1>Valencia Cbo - Chamber of Commerce</h1>
+        <div id="grid_list">
+            <button id="select_grid"><img src="images/grid_icon.png"></button>
+            <button id="select_list"><img src="images/list_ic_icon.png"></button>
+        </div>
        <div id="cards"></div>
     </main>
 
     <footer class="container">
-        <div>
-            <img src="images/venezuela_map.png" alt="Chamber Logo" class="logo-img">
-            <p>Valencia</p>
-            <p>11203 Av. Lara Edificio 5 Piso 3</p>
-            <p>Valencia Cbo 11203</p>
-            <p>(123) 456-789</p>
-            <p>info@chambervalencia.org</p>
+        <div class="footer-info">
+            <img src="images/venezuela_map.png" alt="Valencia Chamber Logo" class="logo-img">
+            <div class="contact-details">
+                <p><strong>Valencia Cbo - Chamber of Commerce</strong></p>
+                <p>11203 Av. Lara, Edificio 5, Piso 3</p>
+                <p>Valencia Cbo 11203, Venezuela</p>
+                <p>📞 (123) 456-789</p>
+                <p>📧 <a href="mailto:info@chambervalencia.org">info@chambervalencia.org</a></p>
+            </div>
         </div>
-        <div class="social">
-            <a href="https://www.facebook.com" target="_blank">
-                <img src="images/facebook_50_50.png" alt="Facebook">
-            </a>
-            <a class="social"  href="https://twitter.com" target="_blank">
-                <img src="images/twitter_50_50.png" alt="Twitter">
-            </a>
-            <a href="https://www.instagram.com" target="_blank">
-                <img src="images/instagram_50_50.png" alt="Instagram">
-            </a>
+    
+        <div class="footer-social">
+            <p><strong>Follow us</strong></p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+                    <img src="images/facebook_50_50.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <img src="images/twitter_50_50.png" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <img src="images/instagram_50_50.png" alt="Instagram">
+                </a>
+            </div>
         </div>
-
-        <div class="copy">
-            <p>Venezuela</p>
-            <p>Steven Savarin</p>
-            <p id="copywrite"></p>
-            <p id="lastModified"></p>
+    
+        <div class="footer-copy">
+            <p><span id="copywrite"></span></p>
+            <p>Developed by Steven Savarin</p>
+            <p><em></em> <span id="lastModified"></span></p>
         </div>
     </footer>
     <script src="scripts/chamber.js" defer></script>
