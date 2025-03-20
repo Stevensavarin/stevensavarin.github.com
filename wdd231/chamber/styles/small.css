@@ -160,9 +160,9 @@ section {
     color: var(--back_color1);
 }
 
-.companies #cards > :nth-child(n+4) {
+/* .companies #cards > :nth-child(n+4) {
     display: none;
-}
+} */
 
 /* section img {
     width: 140px;

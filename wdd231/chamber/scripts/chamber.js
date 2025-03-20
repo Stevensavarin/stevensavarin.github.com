@@ -14,14 +14,21 @@ const doc = document;
  getBusinessData();
  
  async function getBusinessData() {
-     const response = await fetch(membersURL);
-     if (response.ok) {
-         const data = await response.json();
-         //console.log("RESPONSE data");
-         //console.table(data.companies);
-         console.log("AWAITING RESPONSE data");
-         displayBusinesses(data.companies);
-    }
+    const response = await fetch(membersURL);
+    if (response.ok) {
+        const data = await response.json();
+        console.log("AWAITING RESPONSE data");
+        console.table(data.companies);
+
+        if (spotlight == true) {
+            let newList = createGoldSilverArray(data.companies);
+            console.table(newList);
+            let randList = create3RandomBusinesses(newList);
+            displayBusinesses(randList);
+        } else {
+            displayBusinesses(data.companies);
+        };
+    };
 }   
  
 const displayBusinesses = (companies) => {
@@ -77,8 +84,33 @@ const displayBusinesses = (companies) => {
 const gridButton = doc.querySelector('#select_grid');
 const listButton = doc.querySelector('#select_list');
  
+function createGoldSilverArray(companies) {
+    console.log("Going to create GoldSilver array");
+
+    let goldSilver = [];
+    companies.forEach((company) => {
+        if (company.memberLevel>1)
+            goldSilver.push(company);
+    });
+    console.log(goldSilver);
+    return goldSilver;
+};
+
 let gridChoice = "grid";
 console.log("DEFAULT: grid");
+
+function create3RandomBusinesses(array) {
+    // Using Fisher-Yates shuffle algorithm for unique random values
+    let businesses = [];
+
+    for (let i = array.length -1; i>0; i--) {
+        const j = Math.floor(Math.random() * (i+1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    businesses = array.slice(0,3);
+    return businesses;
+}
  
 gridButton.addEventListener('click', () => {
     console.log("gridButton clicked");
