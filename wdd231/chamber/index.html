@@ -23,7 +23,7 @@
 
     <link rel="icon" href="/icono.ico">
         
-    <title>Valencia Cbo - Chamber of Commerce</title>
+    <title>Home Page - Chamber of Commerce</title>
 </head>
 <body>
     <header class=".container">
@@ -45,14 +45,41 @@
        </ul>
    </nav>
 
-    <main>
-       <!-- <h2>Business</h2>  -->
-        <div id="grid_list">
-            <button id="select_grid"><img src="images/grid_icon.png" alt="select icon"></button>
-            <button id="select_list"><img src="images/list_ic_icon.png" alt="select list"></button>
+   <div class="hero-image">
+    <img class="hero-image" src="images/Valencia_Venezuela.webp" alt="Valencia Venezuela Image">
+    <div class="hero-text">
+      <a href="#">Join the Chamber of Commerce</a>
+    </div>
+</div>
+
+<main class="main-large">
+    <section id="home">
+        <div class="events">
+            <h2>Events</h2>
+            <p>Valencia has a warm, tropical climate for most of the year. Temperatures tend to range between 75°F and 96°F, with mostly sunny or partly cloudy days. Although overcast skies or some light rain are common, especially in certain seasons, the city generally enjoys a warm and humid atmosphere, ideal for outdoor activities
+                Cloudy days offer a respite from the intense sunshine, making strolling through squares, attending cultural events or enjoying local cuisine outdoors more pleasant. Rainfall is usually brief, so it doesn't interrupt daily routines and planned events.
+                Thanks to its climate, Valencia is perfect for festivals, fairs, open-air markets and social gatherings all year round - just be prepared for the heat and, from time to time, an umbrella at hand!
+            </p>
         </div>
-       <div id="cards"></div>
-    </main>
+        <div id="weather">
+            <h2>Current Weather</h2>
+            <div id="weather1"></div>
+        </div>
+        <div id="forecast">
+            <h2>Weather Forecast</h2>
+            <div id="forecast1"></div>
+            <div id="forecast2"></div>
+            <div id="forecast3"></div>
+        </div>
+    </section>
+
+    <section class="companies">
+        <div id="buss">
+            <h2>Spotlighting 3 Valencia Cbo Businesses</h2>
+            <div id="cards"></div>
+        </div>
+    </section>
+</main>
 
     <footer class="container">
         <div class="footer-info">
@@ -89,5 +116,6 @@
     </footer>
     <script src="scripts/chamber.js" defer></script>
     <script src="scripts/getdate.js" defer></script>
+    <script src="scripts/weather.js" defer></script>
 </body>
 </html>

@@ -7,14 +7,14 @@ const doc = document;
      hamburgerElement.classList.toggle('open');
  });
 
- const url = 'data/members.json';
+ const membersURL = 'data/members.json';
  const cards = document.querySelector('#cards');
    
  console.log("Going to GET business data");
  getBusinessData();
  
  async function getBusinessData() {
-     const response = await fetch(url);
+     const response = await fetch(membersURL);
      if (response.ok) {
          const data = await response.json();
          //console.log("RESPONSE data");
@@ -64,8 +64,8 @@ const displayBusinesses = (companies) => {
        logo.setAttribute('class', 'business-logo'); // to check
    
        card.appendChild(h2);
-       //card.appendChild(level);  // to do
-       //card.appendChild(address); // to do
+       card.appendChild(level);
+       card.appendChild(address);
        card.appendChild(web);
        card.appendChild(phone);  
        card.appendChild(logo);
