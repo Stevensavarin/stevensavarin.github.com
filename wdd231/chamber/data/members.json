@@ -41,11 +41,11 @@
         "additionalInfo": "Farmacias"
       },
       {
-        "name": "AeroMéxico Venezuela",
+        "name": "AeroMéxico",
         "address": "Caracas, Venezuela",
         "phoneNumber": "+58 212-9531150",
         "url": "https://aeromexico.com/es-ve",
-        "imageurl":"images/aeromexico.webp",
+        "imageurl":"images/Aeromexico.webp",
         "imageurlsrc": "https://gqc-extreme.mx/wp-content/uploads/2022/03/logo.aeromexico.png.webp",
         "memberLevel": 2,
         "additionalInfo": "Aerolínea"
