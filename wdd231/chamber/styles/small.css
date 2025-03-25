@@ -305,7 +305,7 @@ button {
 }
 
 #thankyou {
-    margin-bottom: 300px;
+    margin-bottom: 28px;
 }
 
 #buss h2{
@@ -396,11 +396,6 @@ footer.container {
 
 .footer-info .contact-details p {
     margin: 0.25rem 0;
-}
-
-.footer-info .contact-details a {
-    color: var(--accent_color1);
-    text-decoration: none;
 }
 
 .footer-info .contact-details a:hover {
