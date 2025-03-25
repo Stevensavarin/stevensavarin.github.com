@@ -1,0 +1,28 @@
+{
+    "memberLevels": [
+        {
+            "name": "Non-Prophet Membership",
+            "level": "np",
+            "cost": "Free",
+            "benefits": "Basic access to community events and resources"
+        },
+        {
+            "name": "Bronze Membership",
+            "level": "bronze",
+            "cost": "$40/year",
+            "benefits": "Access to exclusive community events and networking opportunities"
+        },
+        {
+            "name": "Silver Membership",
+            "level": "silver",
+            "cost": "$90/year",
+            "benefits": "Priority access to events, promotional features, and discounts"
+        },
+        {
+            "name": "Gold Membership",
+            "level": "gold",
+            "cost": "$180/year",
+            "benefits": "Premium event access, high-level networking, and full promotional support"
+        }
+    ]
+}

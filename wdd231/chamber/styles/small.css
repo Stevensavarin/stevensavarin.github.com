@@ -304,6 +304,10 @@ button {
     text-align: center;
 }
 
+#thankyou {
+    margin-bottom: 300px;
+}
+
 #buss h2{
     margin-bottom: 0.5rem;
 }
@@ -437,4 +441,173 @@ footer.container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.5rem;
+}
+
+
+/* Join section */
+
+.np, .bronze, .silver, .gold {
+    width: 350px;
+    height: 100px;
+    border: 3px solid var(--back_color2);
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation-duration: 0.8s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.np {
+    animation-name: bounce-np;
+}
+
+.bronze {
+    animation-name: bounce-bronze;
+}
+
+.silver {
+    animation-name: bounce-silver;
+}
+
+.gold {
+    animation-name: bounce-gold;
+}
+
+@keyframes bounce-np {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes bounce-bronze {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes bounce-silver {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+@keyframes bounce-gold {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-10px) rotate(2deg); }
+}
+
+#memberlevels {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+/* form */
+#form h2 {
+    text-align: center;
+    color: var(--back_color1);
+    margin-bottom: 10px;
+}
+
+#form p {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+#form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#form .form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#form .form-item label {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+#form .form-item input,
+#form .form-item select,
+#form .form-item textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+#form .form-item input:focus,
+#form .form-item select:focus,
+#form .form-item textarea:focus {
+    border-color: var(--back_color1);
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+#form .required {
+    color: red;
+    font-weight: bold;
+}
+
+#form .form-submit input[type="submit"] {
+    width: 100%;
+    background-color: var(--back_color2);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+#form .form-submit input[type="submit"]:hover {
+    background-color: var(--back_color1);
+}
+
+#form textarea {
+    resize: vertical;
+}
+
+/* Dialog box*/
+#dialogBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent_color2);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+#dialogBox::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#closeButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+#closeButton:hover {
+    background-color: #a71d2a;
 }
