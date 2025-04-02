@@ -1,0 +1,85 @@
+/* Mobile CSS for Aruba Tourism Project */
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    main div {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    p, li {
+        font-size: 0.95rem;
+    }
+    
+    .color-swatch {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .wireframe a {
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    ul {
+        padding-left: 10px;
+    }
+    
+    li {
+        margin-bottom: 15px;
+    }
+    
+    .wireframe a {
+        padding: 8px 0;
+    }
+    
+    .site-purpose, .site-scenarios {
+        line-height: 1.6;
+    }
+    
+    .color-schema p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+    
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+    }
+    
+    p, li {
+        font-size: 0.9rem;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
