@@ -606,3 +606,107 @@ footer.container {
 #closeButton:hover {
     background-color: #a71d2a;
 }
+
+/*discover*/
+
+iframe {
+    margin-top: 1rem;
+    max-width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+}
+
+.discover-sights img {
+    max-width: 100%;
+    max-width: 700px;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.discover-sights img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discover-sights p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text_color1);
+}
+
+section .discovery {
+    grid-column: 1 / 2;
+}
+
+.main-discover {
+    display: grid;
+    grid-gap: 4rem;
+    padding: 2rem;
+}
+
+.discovery div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--back_color3);
+    border: 3px solid var(--back_color2);
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.discovery div:hover {
+    transform: translateY(-5px);
+}
+
+.discovery p {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.main-discover img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.main-discover h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.h1-div {
+    grid-column: 1 / 2;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.h2-div {
+    grid-column: 2 / 3;
+    text-align: center;
+    align-self: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3 a.valencia {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.visit-msg {
+    text-align: left !important;
+}
+
+h3.map {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
