@@ -1,0 +1,46 @@
+{
+    "items": [
+        {
+            "name": "Campo de Carabobo",
+            "address": "Valencia Highway - Campo de Carabobo, Libertador Municipality.",
+            "description": "A historic site where the Battle of Carabobo was fought in 1821, a decisive event in Venezuela's independence. It features a triumphal arch, statues, and a museum commemorating the battle.",
+            "image": "images/places/campo-carabobo.webp"
+        },
+        {
+            "name": "Catedral de Valencia",
+            "address": "Calle Colombia, between Av. Urdaneta and Av. Soublette, Valencia.",
+            "description": "A stunning cathedral located in the heart of Valencia. Known for its colonial-style architecture, it is one of the most important religious landmarks in the city.",
+            "image": "images/places/catedral-valencia_1.webp"
+        },
+        {
+            "name": "Parque recreacional sur",
+            "address": "Av. Paseo Cabriales, Valencia.",
+            "description": "One of the largest recreational parks in Valencia. It offers walking trails, picnic areas, sports zones, and spaces for family-friendly events.",
+            "image": "images/places/parque-sur.webp"
+        },
+        {
+            "name": "Acuario de Valencia",
+            "address": "Sector Los Colorados, Av. Fernando Figueredo",
+            "description": "A popular aquarium showcasing marine life from the Caribbean Sea. It is an educational and family-friendly destination that highlights local biodiversity.",
+            "image": "images/places/acuario.webp"
+        },
+        {
+            "name": "Monumento a la caña",
+            "address": "Av. El Malecón, Puerto Cabello.",
+            "description": "A scenic seaside promenade with views of the Caribbean Sea. Perfect for enjoying the sea breeze, dining at restaurants, and watching spectacular sunsets.",
+            "image": "images/places/monumento-a-la-caña.webp"
+        },
+        {
+            "name": "Plaza Bolívar",
+            "address": "Centro de Valencia, near the Palacio Municipal.",
+            "description": "A central plaza in Valencia dedicated to Simón Bolívar. Surrounded by historic buildings, it is a hub for cultural and social activities.",
+            "image": "images/places/plaza-bolivar.webp"
+        },
+        {
+            "name": "Sambil",
+            "address": "Av. Lisandro Alvarado, Naguanagua, Carabobo.",
+            "description": "A large shopping mall and entertainment complex in Naguanagua. It features stores, restaurants, cinemas, and recreational areas for all ages.",
+            "image": "images/places/sambil_1.webp"
+        }
+    ]
+}

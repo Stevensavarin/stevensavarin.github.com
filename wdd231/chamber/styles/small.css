@@ -609,104 +609,92 @@ footer.container {
 
 /*discover*/
 
-iframe {
-    margin-top: 1rem;
-    max-width: 100%;
-    max-width: 450px;
-    border-radius: 10px;
-}
-
-.discover-sights img {
-    max-width: 100%;
-    max-width: 700px;
-    border-radius: 1rem;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.discover-sights img:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.discover-sights p {
-    padding: 1rem;
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text_color1);
-}
-
-section .discovery {
-    grid-column: 1 / 2;
-}
-
-.main-discover {
+#discover-container {
     display: grid;
-    grid-gap: 4rem;
-    padding: 2rem;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    place-items: center;
 }
 
-.discovery div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 1.5rem;
-    background-color: var(--back_color3);
-    border: 3px solid var(--back_color2);
-    border-radius: 2rem;
-    margin-bottom: 1rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.discovery div:hover {
-    transform: translateY(-5px);
-}
-
-.discovery p {
+.card-item {
+    display: grid;
+    grid-template-areas: 
+        "name"
+        "description"
+        "photo"
+        "location"
+        "last-visit";
     padding: 1rem;
-    text-align: center;
-    font-size: 1rem;
+    border: 1px solid var(--back_color2);
+    max-width: 380px;
+    cursor: pointer;
+    background-color: var(--accent_color2);
 }
 
-.main-discover img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    transition: transform 0.5s ease-in-out;
-}
-
-.main-discover h2 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-    text-align: center;
-}
-
-.h1-div {
-    grid-column: 1 / 2;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.h2-div {
-    grid-column: 2 / 3;
-    text-align: center;
-    align-self: center;
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-h3 a.valencia {
-    display: inline-block;
+.card-item h2 {
+    grid-area: name;
     margin-bottom: 1rem;
 }
 
-.visit-msg {
-    text-align: left !important;
+.card-item p {
+    grid-area: description;
+    margin-bottom: 1rem;
 }
 
-h3.map {
-    display: inline-block;
-    margin-bottom: 0.5rem;
+.card-item img {
+    width: 100%;
+    grid-area: photo;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.card-item address {
+    grid-area: location;
+    margin-bottom: 1rem;
+}
+
+.card-item aside {
+    grid-area: last-visit;
+}
+
+.btn {
+    padding: .75rem 1.5rem;
+    text-decoration: none;
+    background-color: var(--back_color2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: var(--back_color1);
+    color: var(--primary-color);
+    transform: scale(1);
+    transition: all .3s ease;
+}
+
+/* Pop-up */
+.visit-popup {
+    position: relative;
+    background-color: var(--back_color2);
+    padding: 0.75rem;
+    border-radius: 4px;
+    width: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    border: none;
+    padding: .25rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    transform: translateY(-50%);
 }
