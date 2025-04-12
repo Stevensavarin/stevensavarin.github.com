@@ -36,5 +36,5 @@ let opinions = [];
     // Llamar a la función al cargar la página
     window.onload = loadOpinions;
 
-    // Opcional: Cambiar las opiniones cada cierto tiempo (por ejemplo, cada 10 segundos)
+    // Opcional: Cambiar las opiniones cada cierto tiempo
     setInterval(renderRandomOpinions, 5000);
