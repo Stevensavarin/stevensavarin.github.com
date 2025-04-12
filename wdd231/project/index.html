@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Home page">
+    <meta name="author" content="Steven Savarin">
+
+    <link rel="icon" href="images/icon.ico" sizes="32x32" type="image/ico">
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="ArubaTourism">
+    <meta property="og:type" content="website"/>
+    <meta property="og:description"
+        content="Experience the beauty of Aruba with its stunning beaches, vibrant culture, and endless sunshine. Discover a Caribbean paradise like no other!">
+    <meta property="og:image" content="https://Stevensavarin.github.io/wdd231/project/images/background.webp">
+    <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/project/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>ArubaTourism</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+</head>
+
+<body id="index-page">
+    <header>
+        <nav>
+            <div class="box-logo-header">
+                <a href="./index.html" aria-label="Go to Home Page">
+                    <img class="logo-chamber" src="images/aruba.png" alt="Logo ArubaTourism"
+                    width="200" height="200" loading="lazy" />
+                </a>
+                <h1 class="nameHeader"><strong>Aruba</strong> <br>Tourism</h1>
+                <button name="navigation button" id="menu" aria-label="Toggle menu"></button>
+            </div>
+            <ul>
+                <li><a class="nav-a " href="./index.html">Home</a></li>
+                <li><a class="nav-a " href="./visit.html">Visit</a></li>
+                <li><a class="nav-a " href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro-box">
+            <picture class="intro-img">
+                <source media="(min-width: 900px)" srcset="images/aruba-houten-trap-big.webp" width="1250" height="760">
+                <source media="(min-width: 620px)" srcset="images/aruba-houten-trap-small.webp" width="860" height="760">
+                <img src="images/aruba-houten-trap-small.webp" alt="Aruba" width="570" height="760" loading="lazy">
+            </picture>
+            <div class="intro-content">
+                <div class="intro-msg">
+                    <h2>Discover Aruba,<br>
+                        <strong>your Caribbean paradise.</strong></h2>
+                </div>
+                <div class="button-contact">
+                    <button class="css-button-arrow--black" onclick="location.href='../project/contact.html'">BOOK
+                        NOW</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="midle-box">
+
+            <article class="side_article">
+                <div class="content">
+                    <h3>We Are Waiting <br> For YOU!</h3>
+                    <p>Discover Aruba, a Caribbean paradise with endless charm.<br>
+                       Relax on iconic beaches like Eagle Beach and Palm Beach, known for their white sand and turquoise waters.<br>
+                       Explore vibrant marine life at Mangel Halto or Boca Catalina.</p>
+                    <p>Stroll through Oranjestad’s colorful streets, blending Dutch colonial architecture with local culture.<br>
+                       Visit landmarks like the California Lighthouse or hike Hooiberg for stunning island views.</p>
+                    <p>Adventure awaits in Arikok National Park, home to rugged landscapes and hidden caves.<br>
+                       Don’t miss the Natural Pool, perfect for swimming amidst volcanic rocks.<br>
+                       Let us guide you through this unforgettable destination.</p>
+                </div>
+            </article>
+
+            <article class="main_article">
+                <div id="cards-container"></div>
+            </article>
+        </section>
+
+        <section class="social-box">
+            <div class="back-box">
+                <div class="action-box">
+                    <img src="images/background.webp" alt="Aruba" width="900" height="767" loading="lazy">
+                    <div class="action-msg">
+                        <h2>Book a Tour with Us</h2>
+                        <h4>The Happy Island</h4>
+                    </div>
+                </div>
+                <div class="socia-info">
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>(123) 456-789</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Email:</h4>
+                        <p>aruba@reservations.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Social:</h4>
+                        <p>
+                            <a href="#"><img src="images/facebook.png" alt="Facebook" width="104"
+                                    height="104" loading="lazy"></a>
+                            <a href="#"><img src="images/twitter.png" alt="Twitter" width="104"
+                                    height="104" loading="lazy"></a>
+                            <a href="#"><img src="images/instagram.png" alt="Instagram" width="104"
+                                    height="104" loading="lazy"></a>
+                        </p>
+                    </div>
+                    <div class="weather-main" id="weather-main"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear">2024</span> - Steven Savarin - Aruba</p>
+        <p id="lastModified"></p>
+    </footer>
+    <script type="module" src="scripts/app.mjs"></script>
+    <script src="scripts/module/weather.js" defer></script>
+    <script src="scripts/module/index.js" defer></script>
+</body>
+
+</html>

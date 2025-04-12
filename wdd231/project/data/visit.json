@@ -1,0 +1,23 @@
+[
+    {
+        "image": "images/card-5.webp",
+        "alt": "Self-Paced Tour in Aruba",
+        "title": "Self-Paced Tour",
+        "price": "$399",
+        "description": "Explore at your own pace with a customizable itinerary. Perfect for independent travelers."
+    },
+    {
+        "image": "images/card-3.webp",
+        "alt": "Semi-Guided Tour in Aruba",
+        "title": "Semi-Guided Tour",
+        "price": "$499",
+        "description": "A mix of guided and self-paced experiences. Includes support from local experts."
+    },
+    {
+        "image": "images/card-1.webp",
+        "alt": "Fully Guided Tour in Aruba",
+        "title": "Fully Guided Tour",
+        "price": "$599",
+        "description": "Enjoy a fully guided experience with a personal guide. Ideal for immersive travel."
+    }
+]

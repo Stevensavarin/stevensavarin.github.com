@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thank you page">
+    <meta name="author" content="Steven Savarin">
+
+    <link rel="icon" href="images/icon.ico" sizes="32x32" type="image/ico">
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="ArubaTourism">
+    <meta property="og:type" content="website"/>
+    <meta property="og:description"
+        content="Experience the beauty of Aruba with its stunning beaches, vibrant culture, and endless sunshine. Discover a Caribbean paradise like no other!">
+    <meta property="og:image" content="https://Stevensavarin.github.io/wdd231/project/images/background.webp">
+    <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/project/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>ArubaTourism</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="box-logo-header">
+                <a href="./index.html" aria-label="Go to Home Page">
+                    <img class="logo-chamber" src="images/aruba.png" alt="Logo ArubaTourism"
+                    width="200" height="200" loading="lazy" />
+                </a>
+                <h1 class="nameHeader"><strong>Aruba</strong> <br>Tourism</h1>
+                <button name="navigation button" id="menu" aria-label="Toggle menu"></button>
+            </div>
+            <ul>
+                <li><a class="nav-a " href="./index.html">Home</a></li>
+                <li><a class="nav-a " href="./visit.html">Visit</a></li>
+                <li><a class="nav-a " href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="thank-you">
+            <div class="thank-you-content">
+                <h1 id="thank-you-title">Thank You!</h1>
+                <p id="thank-you-message">
+                    We truly appreciate your interest and trust in us. Your submission has been received successfully, and we are excited to assist you further!
+                </p>
+                <p>
+                    Here’s what you can expect next:
+                </p>
+                <ul id="next-steps">
+                    <li><strong>Confirmation Email:</strong> Check your inbox for a confirmation email with all the details you provided.</li>
+                    <li><strong>Support Team:</strong> Our team will review your request and get back to you within 24-48 hours.</li>
+                    <li><strong>Stay Connected:</strong> Follow us on social media for updates, tips, and exclusive offers!</li>
+                </ul>
+                <p>
+                    In the meantime, feel free to explore our website or reach out if you have any questions. We’re here to help!
+                </p>
+                <div id="user-info"></div>
+                <a href="index.html" class="button">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;<span id="currentyear">2024</span> - Steven Savarin - Aruba</p>
+        <p id="lastModified"></p>
+    </footer>
+    <script src="scripts/module/thankyoustore.js"></script>
+    <script type="module" src="scripts/app.mjs"></script>
+
+</body>
+
+</html>

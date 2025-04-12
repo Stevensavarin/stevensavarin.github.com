@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visit page">
+    <meta name="author" content="Steven Savarin">
+
+    <link rel="icon" href="images/icon.ico" sizes="32x32" type="image/ico">
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="ArubaTourism">
+    <meta property="og:type" content="website"/>
+    <meta property="og:description"
+        content="Experience the beauty of Aruba with its stunning beaches, vibrant culture, and endless sunshine. Discover a Caribbean paradise like no other!">
+    <meta property="og:image" content="https://Stevensavarin.github.io/wdd231/project/images/background.webp">
+    <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/project/visit.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>ArubaTourism</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+</head>
+
+<body id="visit-page">
+    <header>
+        <nav>
+            <div class="box-logo-header">
+                <a href="./index.html" aria-label="Go to Home Page">
+                    <img class="logo-chamber" src="images/aruba.png" alt="Logo ArubaTourism"
+                    width="200" height="200" loading="lazy" />
+                </a>
+                <h1 class="nameHeader"><strong>Aruba</strong> <br>Tourism</h1>
+                <button name="navigation button" id="menu" aria-label="Toggle menu"></button>
+            </div>
+            <ul>
+                <li><a class="nav-a " href="./index.html">Home</a></li>
+                <li><a class="nav-a " href="./visit.html">Visit</a></li>
+                <li><a class="nav-a " href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-principal">
+            <h2>Our <span>Adventures</span></h2>
+            <article class="price-box" id="price-container">
+            </article>
+        </section>
+
+        <section class="section-media">
+            <h2>What We Can Offer You</h2>
+            <p>Aruba Experience offers curated travel packages, local expertise, and unforgettable adventures that highlight the beauty, culture, and diversity of Aruba. Whether you're seeking relaxation, adventure, or cultural immersion, our services are designed to make your visit exceptional.</p>
+            <article class="slider-container slider-dimensions">
+                <div class="slider">
+                    <div data-img-url="images/visit-1.webp" class="slider-dimensions" width="470" loading="lazy">
+                        <h4>Beachfront Relaxation Packages</h4>
+                    </div>
+                    <div data-img-url="images/visit-2.webp" class="slider-dimensions" width="470" loading="lazy">
+                        <h4>Snorkeling & Diving Adventures</h4>
+                    </div>
+                    <div data-img-url="images/visit-3.webp" class="slider-dimensions" width="470" loading="lazy">
+                        <h4>Cultural Heritage Tours</h4>
+                    </div>
+                    <div data-img-url="images/background.webp" class="slider-dimensions" width="470" loading="lazy">
+                        <h4>Private Island Hopping Excursions</h4>
+                    </div>
+                </div>
+                <div class="nav-container slider-dimensions">
+                    <button data-index-change="-1"><</button>
+                    <div class="index-container">
+                    </div>
+                    <button data-index-change="1">></button>
+                </div>
+            </article>
+        </section>
+
+        <section class="section-opinion">
+            <div class="opinion opinion-01"></div>
+            <div class="opinion opinion-02"></div>
+            <div class="opinion opinion-03"></div>
+        </section>
+        <div class="contact-info-visit">
+            <a href="#"><img src="images/facebook.png" alt="Facebook" width="104" height="104"
+                    loading="lazy" loading="lazy"></a>
+            <a href="#"><img src="images/twitter.png" alt="Twitter" width="104" height="104"
+                    loading="lazy" loading="lazy"></a>
+            <a href="#"><img src="images/instagram.png" alt="Instagram" width="104" height="104"
+                    loading="lazy" loading="lazy"></a>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear">2024</span> - Steven Savarin - Aruba</p>
+        <p id="lastModified"></p>
+    </footer>
+    <script type="module" src="scripts/app.mjs"></script>
+    <script src="scripts/module/visit.js" defer></script>
+    <script src="scripts/module/visit_prices.js" defer></script>
+    <script src="scripts/module/opinion.js" defer></script>
+</body>
+
+</html>

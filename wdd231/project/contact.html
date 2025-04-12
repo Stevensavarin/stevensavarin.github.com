@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact page">
+    <meta name="author" content="Steven Savarin">
+
+    <link rel="icon" href="images/icon.ico" sizes="32x32" type="image/ico">
+
+    <!--  Essential META Tags -->
+    <meta property="og:title" content="ArubaTourism">
+    <meta property="og:type" content="website"/>
+    <meta property="og:description"
+        content="Experience the beauty of Aruba with its stunning beaches, vibrant culture, and endless sunshine. Discover a Caribbean paradise like no other!">
+    <meta property="og:image" content="https://Stevensavarin.github.io/wdd231/project/images/background.webp">
+    <meta property="og:url" content="https://Stevensavarin.github.io/wdd231/project/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>ArubaTourism</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/large.css">
+
+</head>
+
+<body id="contact-page">
+    <header>
+        <nav>
+            <div class="box-logo-header">
+                <a href="./index.html" aria-label="Go to Home Page">
+                    <img class="logo-chamber" src="images/aruba.png" alt="Logo ArubaTourism"
+                    width="200" height="200" loading="lazy" />
+                </a>
+                <h1 class="nameHeader"><strong>Aruba</strong> <br>Tourism</h1>
+                <button name="navigation button" id="menu" aria-label="Toggle menu"></button>
+            </div>
+            <ul>
+                <li><a class="nav-a " href="./index.html">Home</a></li>
+                <li><a class="nav-a " href="./visit.html">Visit</a></li>
+                <li><a class="nav-a " href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container-contact">
+        <section class="contact-box">
+            <div class="image-side slideshow" id="slider">
+                <img id="rotating-image" src="images/contact-3.webp" alt="Image" width="350" height="767"
+                    loading="lazy">
+            </div>
+            <div class="form-container">
+                <form id="contactForm" method="get" action="thankyou.html">
+                    <h2 class="sub-title-form">Contact US</h2>
+                    <label class="name-lb">Name:</label><br><br>
+                    <input type="text" name="firstName" title="Enter your first name" autocomplete="given-name" required placeholder="First"><br><br>
+                    <input type="text" name="lastName" title="Enter your last name" autocomplete="family-name" required placeholder="Last"><br><br>
+                    <label>Email Address:</label><br><br>
+                    <input type="email" name="email" title="Enter your email address" autocomplete="email" placeholder="example@email.com" required><br><br>
+                    <label>Mobile Phone Number:</label><br><br>
+                    <input type="tel" name="phone" title="Enter your mobile phone number" autocomplete="tel" required placeholder="+1 123-456-7890"><br><br>
+                    <label>Message:</label><br><br>
+                    <textarea name="organizationDescription" title="Write your message" rows="4" cols="50"></textarea><br><br>
+                    <button class="css-button-fully-rounded--grey" type="submit">Submit</button><br><br>
+                </form>
+            </div>
+        </section>
+        <article class="box-contact-action">
+            <div class="image-container">
+                <img src="images/bg-5.webp" alt="Image" width="900" height="506">
+            </div>
+            <div class="final-contact">
+                <h3>Discover the Magic of Aruba</h3>
+                <p>Your Caribbean Paradise Awaits</p>
+                <div class="contact-item-social">
+                    <a href="#"><img src="images/facebook.png" alt="Facebook" width="48" height="48"></a>
+                    <a href="#"><img src="images/twitter.png" alt="Twitter" width="48" height="48"></a>
+                    <a href="#"><img src="images/instagram.png" alt="Instagram" width="48" height="48"></a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy;<span id="currentyear">2024</span> - Steven Savarin - Aruba</p>
+        <p id="lastModified"></p>
+    </footer>
+    <!-- <script src="scripts/module/localstore.js"></script> -->
+    <script type="module" src="scripts/app.mjs"></script>
+    <script src="scripts/module/contact.js"></script>
+</body>
+
+</html>

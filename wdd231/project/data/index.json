@@ -1,0 +1,38 @@
+[
+    {
+        "image": "images/card-1.webp",
+        "alt": "Oranjestad, Aruba",
+        "title": "Vibrant Oranjestad",
+        "description": "Explore the colorful streets of Oranjestad, Aruba's capital city. From its iconic pastel-colored buildings to bustling markets and cultural landmarks like Fort Zoutman, Oranjestad offers a perfect blend of history, shopping, and vibrant Caribbean charm."
+    },
+    {
+        "image": "images/card-2.webp",
+        "alt": "Beaches of Aruba",
+        "title": "Aruba's Pristine Beaches",
+        "description": "Relax on Aruba's world-famous beaches, such as Eagle Beach and Palm Beach. With powdery white sand, crystal-clear waters, and stunning sunsets, these beaches are perfect for swimming, snorkeling, or simply soaking up the Caribbean sunshine."
+    },
+    {
+        "image": "images/card-3.webp",
+        "alt": "Hooiberg, Aruba",
+        "title": "Hike to Hooiberg",
+        "description": "Challenge yourself with a hike to Hooiberg, one of Aruba's most iconic landmarks. This towering hill offers breathtaking panoramic views of the island and the surrounding ocean. It's a must-visit spot for nature lovers and adventure seekers alike."
+    },
+    {
+        "image": "images/card-5.webp",
+        "alt": "Arikok National Park",
+        "title": "Arikok National Park",
+        "description": "Discover the natural beauty of Arikok National Park, home to diverse landscapes including rugged hills, caves, and pristine beaches. Explore hiking trails, ancient rock paintings, and unique flora and fauna."
+    },
+    {
+        "image": "images/card-6.webp",
+        "alt": "Aruba's Caves",
+        "title": "Explore Aruba's Caves",
+        "description": "Visit the fascinating caves of Aruba, such as Guadirikiri Cave and Fontein Cave. These natural wonders are filled with history, featuring ancient Arawak drawings and stunning limestone formations."
+    },
+    {
+        "image": "images/card-7.webp",
+        "alt": "Aruba's Underwater World",
+        "title": "Aruba's Underwater World",
+        "description": "Experience the magic of Aruba's underwater world by snorkeling or scuba diving. Discover vibrant coral reefs, shipwrecks, and marine life in the crystal-clear waters surrounding the island."
+    }
+]
