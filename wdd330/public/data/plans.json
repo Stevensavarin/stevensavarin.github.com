@@ -1,0 +1,43 @@
+[
+  {
+    "id": "plan_basic",
+    "name": "Plan Básico",
+    "description": "Acceso a recetas exclusivas.",
+    "price": 5.99,
+    "currency": "EUR",
+    "features": [
+      "50+ Recetas Exclusivas",
+      "Soporte por Email"
+    ],
+    "duration": "monthly"
+  },
+  {
+    "id": "plan_pro",
+    "name": "Plan Pro",
+    "description": "Acceso completo a todas las recetas y funcionalidades.",
+    "price": 14.99,
+    "currency": "EUR",
+    "features": [
+      "Todas las Recetas Exclusivas",
+      "Creación de Listas de Compras",
+      "Planificador de Comidas",
+      "Soporte Prioritario"
+    ],
+    "duration": "monthly"
+  },
+  {
+    "id": "plan_yearly_pro",
+    "name": "Plan Pro Anual",
+    "description": "Acceso completo anual con descuento.",
+    "price": 149.99,
+    "currency": "EUR",
+    "features": [
+      "Todas las Recetas Exclusivas",
+      "Creación de Listas de Compras",
+      "Planificador de Comidas",
+      "Soporte Prioritario",
+      "Descuento Anual"
+    ],
+    "duration": "yearly"
+  }
+]

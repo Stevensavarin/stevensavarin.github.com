@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Ensalada Mediterránea",
+    "image": "/public/images/salad.webp",
+    "ingredients": ["Tomate", "Pepino", "Aceitunas", "Queso feta", "Aceite de oliva"],
+    "instructions": "Mezcla todos los ingredientes y sirve frío.",
+    "difficulty": "Fácil",
+    "time": "10 min",
+    "category": "Vegetariana",
+    "isPremium": false,
+    "servings": 2
+  },
+  {
+    "id": 2,
+    "title": "Salmón al Horno",
+    "image": "/public/images/salmon.webp",
+    "ingredients": ["Salmón", "Limón", "Ajo", "Hierbas"],
+    "instructions": "Hornea el salmón con los ingredientes por 20 minutos.",
+    "difficulty": "Media",
+    "time": "25 min",
+    "category": "Pescado",
+    "isPremium": true,
+    "servings": 2
+  },
+  {
+    "id": 3,
+    "title": "Curry de Garbanzos y Espinacas",
+    "image": "/public/images/garbanzos.webp",
+    "ingredients": ["Garbanzos", "Espinacas", "Leche de coco", "Tomate triturado", "Pasta de curry", "Cebolla", "Jengibre", "Ajo"],
+    "instructions": "Sofríe la cebolla, el jengibre y el ajo. Añade la pasta de curry, el tomate y la leche de coco. Incorpora los garbanzos y las espinacas, y cocina a fuego lento hasta que espese. Sirve con arroz.",
+    "difficulty": "Media",
+    "time": "30 min",
+    "category": "Vegetariana",
+    "isPremium": false,
+    "servings": 4
+  },
+  {
+    "id": 4,
+    "title": "Tacos de Pollo al Pastor",
+    "image": "/public/images/tacos.webp",
+    "ingredients": ["Pechuga de pollo", "Piña", "Cebolla", "Cilantro", "Tortillas de maíz", "Adobo al pastor", "Limón"],
+    "instructions": "Marina el pollo en el adobo y ásalo con la piña. Pica el pollo y la piña, y sírvelos en tortillas calientes con cebolla, cilantro y un chorrito de limón.",
+    "difficulty": "Media",
+    "time": "40 min",
+    "category": "Carne",
+    "isPremium": true,
+    "servings": 3
+  },
+  {
+    "id": 5,
+    "title": "Pasta con Pesto Casero y Tomates Cherry",
+    "image": "/public/images/pasta.webp",
+    "ingredients": ["Pasta (cualquier tipo)", "Albahaca fresca", "Piñones", "Parmesano", "Ajo", "Aceite de oliva", "Tomates cherry"],
+    "instructions": "Prepara el pesto triturando la albahaca, piñones, parmesano, ajo y aceite. Cocina la pasta al dente. Mezcla la pasta con el pesto y añade los tomates cherry cortados por la mitad.",
+    "difficulty": "Fácil",
+    "time": "20 min",
+    "category": "Vegetariana",
+    "isPremium": false,
+    "servings": 2
+  },
+  {
+    "id": 6,
+    "title": "Sopa de Lentejas Casera",
+    "image": "/public/images/sopa_lentejas.webp",
+    "ingredients": ["Lentejas", "Zanahoria", "Patata", "Cebolla", "Ajo", "Pimentón", "Caldo de verduras"],
+    "instructions": "Sofríe la cebolla, el ajo y las verduras. Añade las lentejas, el pimentón y el caldo. Cocina a fuego lento hasta que las lentejas estén tiernas. Sirve caliente.",
+    "difficulty": "Fácil",
+    "time": "45 min",
+    "category": "Vegetariana",
+    "isPremium": false,
+    "servings": 4
+  },
+  {
+    "id": 7,
+    "title": "Risotto de Setas",
+    "image": "/public/images/risotto_setas.webp",
+    "ingredients": ["Arroz Arborio", "Setas variadas", "Cebolla", "Ajo", "Vino blanco", "Caldo de verduras", "Parmesano", "Mantequilla"],
+    "instructions": "Sofríe la cebolla y el ajo. Añade el arroz y tuesta. Incorpora el vino blanco y, una vez evaporado, añade el caldo poco a poco sin dejar de remover. Al final, añade las setas cocinadas aparte, la mantequilla y el parmesano.",
+    "difficulty": "Media",
+    "time": "35 min",
+    "category": "Vegetariana",
+    "isPremium": true,
+    "servings": 2
+  },
+  {
+    "id": 8,
+    "title": "Brochetas de Pollo y Verduras",
+    "image": "/public/images/brochetas_pollo.webp",
+    "ingredients": ["Pechuga de pollo", "Pimientos de colores", "Cebolla roja", "Calabacín", "Tomates cherry", "Aceite de oliva", "Hierbas provenzales"],
+    "instructions": "Corta el pollo y las verduras en trozos. Ensarta en brochetas alternando pollo y verduras. Adereza con aceite y hierbas. Cocina a la plancha o a la parrilla hasta que estén doradas.",
+    "difficulty": "Fácil",
+    "time": "25 min",
+    "category": "Carne",
+    "isPremium": false,
+    "servings": 3
+  },
+  {
+    "id": 9,
+    "title": "Chili con Carne Casero",
+    "image": "/public/images/chili_carne.webp",
+    "ingredients": ["Carne picada de ternera", "Frijoles rojos", "Tomate triturado", "Pimiento verde", "Cebolla", "Ajo", "Chile en polvo", "Comino", "Caldo de carne"],
+    "instructions": "Sofríe la cebolla, el pimiento y el ajo. Añade la carne picada y dora. Incorpora el tomate triturado, los frijoles, el chile en polvo, el comino y el caldo de carne. Cocina a fuego lento durante al menos 30 minutos (cuanto más, mejor) para que los sabores se mezclen. Sirve con arroz, nachos o crema agria.",
+    "difficulty": "Media",
+    "time": "45 min",
+    "category": "Carne",
+    "isPremium": true,
+    "servings": 4
+  }
+]
