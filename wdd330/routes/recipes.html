@@ -1,0 +1,36 @@
+<section class="container">
+  <h2>Recetas Saludables</h2>
+  <div class="filters-container">
+    <input type="text" id="searchInput" placeholder="Buscar por título, ingrediente o descripción...">
+
+    <select id="sortSelect">
+      <option value="az">Título (A-Z)</option>
+      <option value="za">Título (Z-A)</option>
+      <option value="timeAsc">Tiempo (Menor a Mayor)</option>
+      <option value="timeDesc">Tiempo (Mayor a Menor)</option>
+      <option value="servingsAsc">Raciones (Menor a Mayor)</option>
+      <option value="servingsDesc">Raciones (Mayor a Menor)</option>
+    </select>
+
+    <select id="categoryFilter">
+      <option value="">Todas las Categorías</option>
+      </select>
+
+    <div class="checkbox-group">
+      <label for="premiumFilter">
+        <input type="checkbox" id="premiumFilter"> Mostrar solo Premium
+      </label>
+      <label for="easyFilter">
+        <input type="checkbox" id="easyFilter"> Fácil
+      </label>
+      <label for="mediumFilter">
+        <input type="checkbox" id="mediumFilter"> Media
+      </label>
+      </div>
+
+    <input type="number" id="servingsFilter" placeholder="Raciones (mínimo)">
+
+  </div>
+
+  <div id="recipesContainer" class="recipes-grid"></div>
+</section>

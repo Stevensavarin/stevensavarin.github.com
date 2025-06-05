@@ -1,0 +1,213 @@
+/* ===== Variables ===== */
+:root {
+  --color-green: #A8D5BA;
+  --color-white: #ffffff;
+  --color-light-grey: #f2f2f2;
+  --color-dark-grey: #333333;
+  --color-coral: #ff6b6b;
+
+  --font-title: 'Poppins', sans-serif;
+  --font-text: 'Open Sans', sans-serif;
+}
+
+/* ===== Reset Básico ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-text);
+  background-color: var(--color-light-grey);
+  color: var(--color-dark-grey);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-dark-grey);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ===== Layout General ===== */
+header, footer {
+  background-color: var(--color-green);
+  padding: 1rem;
+  color: var(--color-white);
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  padding: 2rem;
+  min-height: 80vh;
+  background-color: var(--color-white);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ===== Recipe ===== */
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.recipe-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #FF6B6B;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+
+/* =====  Filtros ===== */
+
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-light-grey);
+    border-radius: 8px;
+    border: 1px solid var(--color-light-grey);
+    align-items: center;
+    font-family: var(--font-text);
+}
+
+.filters-container input[type="text"],
+.filters-container input[type="number"],
+.filters-container select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+    max-width: 250px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--color-white);
+    color: var(--color-dark-grey);
+}
+
+.filters-container input[type="text"]::placeholder {
+    color: #999;
+}
+
+.filters-container input[type="text"]:focus,
+.filters-container input[type="number"]:focus,
+.filters-container select:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(168, 213, 186, 0.5);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--color-dark-grey);
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.no-recipes-message { /* Mensaje cuando no hay recetas */
+    text-align: center;
+    width: 100%;
+    grid-column: 1 / -1;
+    font-size: 1.2rem;
+    color: var(--color-dark-grey);
+    padding: 2rem;
+    background-color: var(--color-light-grey);
+    border-radius: 8px;
+    font-family: var(--font-text);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* filtros */
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters-container input[type="text"],
+    .filters-container input[type="number"],
+    .filters-container select {
+        max-width: 100%;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+

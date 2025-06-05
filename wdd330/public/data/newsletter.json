@@ -1,0 +1,20 @@
+[
+  {
+    "id": "nws_001",
+    "email": "juan.perez@example.com",
+    "subscriptionDate": "2024-01-15T10:30:00Z",
+    "isActive": true
+  },
+  {
+    "id": "nws_002",
+    "email": "maria.gomez@test.com",
+    "subscriptionDate": "2024-02-20T14:00:00Z",
+    "isActive": true
+  },
+  {
+    "id": "nws_003",
+    "email": "carlos.ruiz@sample.net",
+    "subscriptionDate": "2024-03-01T09:00:00Z",
+    "isActive": false
+  }
+]

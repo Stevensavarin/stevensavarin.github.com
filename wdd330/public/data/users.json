@@ -1,0 +1,41 @@
+[
+  {
+    "id": "user_101",
+    "username": "adminUser",
+    "email": "admin@example.com",
+    "passwordHash": "hashed_password_example_1234",
+    "firstName": "Admin",
+    "lastName": "User",
+    "registrationDate": "2023-10-01T08:00:00Z",
+    "lastLogin": "2025-06-05T17:30:00Z",
+    "premiumPlanId": "plan_pro",
+    "isActive": true,
+    "roles": ["admin", "premium"]
+  },
+  {
+    "id": "user_102",
+    "username": "recipeLover",
+    "email": "recipe.lover@example.com",
+    "passwordHash": "another_hashed_password_5678",
+    "firstName": "Ana",
+    "lastName": "Martínez",
+    "registrationDate": "2024-01-20T11:00:00Z",
+    "lastLogin": "2025-06-04T09:15:00Z",
+    "premiumPlanId": null,
+    "isActive": true,
+    "roles": ["user"]
+  },
+  {
+    "id": "user_103",
+    "username": "cookingPro",
+    "email": "pro@example.com",
+    "passwordHash": "yet_another_hash_9101",
+    "firstName": "Pedro",
+    "lastName": "García",
+    "registrationDate": "2024-03-05T16:45:00Z",
+    "lastLogin": "2025-06-05T10:00:00Z",
+    "premiumPlanId": "plan_yearly_pro",
+    "isActive": true,
+    "roles": ["user", "premium"]
+  }
+]
