@@ -7,6 +7,7 @@ export async function loadRecipes() {
   const easyFilter = document.getElementById('easyFilter');
   const mediumFilter = document.getElementById('mediumFilter');
   const servingsFilter = document.getElementById('servingsFilter');
+  const favoritesFilter = document.getElementById('favoritesFilter');
 
   let allRecipes = []; // Para guardar la lista original de recetas
 
@@ -33,11 +34,12 @@ export async function loadRecipes() {
   easyFilter.addEventListener('change', applyFiltersAndSort);
   mediumFilter.addEventListener('change', applyFiltersAndSort);
   servingsFilter.addEventListener('input', applyFiltersAndSort);
-
+  favoritesFilter.addEventListener('change', applyFiltersAndSort);
 
   // Función central para aplicar todos los filtros y ordenar
   function applyFiltersAndSort() {
     let filteredRecipes = [...allRecipes]; // Siempre todas las recetas al empezar
+    const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || []; // Obtener favoritos aquí
 
     // Filtrar por búsqueda de título/descripción/ingredientes
     const searchTerm = searchInput.value.toLowerCase().trim();
@@ -60,7 +62,7 @@ export async function loadRecipes() {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.isPremium);
     }
 
-    // 4. Filtrar por Dificultad
+    // Filtrar por Dificultad
     const selectedDifficulties = [];
     if (easyFilter.checked) selectedDifficulties.push('Fácil');
     if (mediumFilter.checked) selectedDifficulties.push('Media');
@@ -77,6 +79,12 @@ export async function loadRecipes() {
     const minServings = parseInt(servingsFilter.value);
     if (!isNaN(minServings) && minServings > 0) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.servings >= minServings);
+    }
+
+    if (favoritesFilter.checked) {
+        filteredRecipes = filteredRecipes.filter(recipe =>
+            currentFavorites.includes(recipe.id)
+        );
     }
 
     // Ordenar
@@ -117,12 +125,16 @@ export async function loadRecipes() {
 
   // Función para renderizar las recetas en el DOM
   function displayRecipes(recetas) {
-    if (recetas.length === 0) {
-      container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
-      return;
-    }
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    container.innerHTML = recetas.map(recipe => `
+  if (recetas.length === 0) {
+    container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
+    return;
+  }
+
+  container.innerHTML = recetas.map(recipe => {
+    const isFavorite = favorites.includes(recipe.id);
+    return `
       <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
         <img src="${recipe.image}" alt="${recipe.title}">
         <h3>${recipe.title}</h3>
@@ -130,11 +142,33 @@ export async function loadRecipes() {
         <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
         <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
         <p><strong>Categoría:</strong> ${recipe.category}</p>
+        <button class="favorite-btn" data-id="${recipe.id}" title="Agregar a favoritos">
+          ${isFavorite ? '❤️' : '🤍'}
+        </button>
         ${recipe.isPremium ? '<span class="badge">Premium</span>' : ''}
       </div>
-    `).join('');
-  }
+    `;
+  }).join('');
+  
+   document.querySelectorAll('.favorite-btn').forEach(btn => {
+      btn.addEventListener('click', (event) => {
+        const id = parseInt(event.currentTarget.dataset.id); // Usar event.currentTarget
+        let currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+        if (currentFavorites.includes(id)) {
+          currentFavorites = currentFavorites.filter(favId => favId !== id);
+        } else {
+          currentFavorites.push(id);
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+        
+        // ¡IMPORTANTE! Vuelve a aplicar TODOS los filtros y el orden
+        // para que la vista se actualice correctamente, especialmente si el filtro de favoritos está activo.
+        applyFiltersAndSort(); 
+      });
+    });
+  }
   // Función para poblar dinámicamente las opciones del filtro de categoría
   // Esto es útil para no actualizar el HTML si tengo que añadir nuevas categorías
   function populateCategoryFilter(recipes) {

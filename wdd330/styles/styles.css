@@ -185,6 +185,22 @@ footer {
     font-family: var(--font-text);
 }
 
+.recipe-card .favorite-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8rem; /*tamaño del corazón*/
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.recipe-card .favorite-btn:hover {
+    transform: scale(1.1);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     nav ul {
