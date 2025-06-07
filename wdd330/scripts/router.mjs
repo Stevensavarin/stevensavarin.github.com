@@ -8,7 +8,7 @@ export async function router() {
     '/dashboard': 'routes/dashboard.html'
   };
 
-  const path = location.hash.slice(1).toLowerCase();
+  let path = location.hash.slice(1).toLowerCase() || '/';
 
   // Si 'path' está vacío (es decir, estoy en la raíz o solo '#'),
   // quiero tratarlo como si fuera la ruta raíz '/'.
