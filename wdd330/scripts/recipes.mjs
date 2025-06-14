@@ -8,24 +8,20 @@ export async function loadRecipes() {
   const mediumFilter = document.getElementById('mediumFilter');
   const servingsFilter = document.getElementById('servingsFilter');
 
-  let allRecipes = []; // Para guardar la lista original de recetas
+  let allRecipes = [];
 
   try {
     const res = await fetch('public/data/recipes.json');
     allRecipes = await res.json();
     console.log("Recetas cargadas:", allRecipes);
 
-    // Llenar dinámicamente las opciones del filtro de categoría
     populateCategoryFilter(allRecipes);
-
-    // Mostrar todas las recetas inicialmente
     applyFiltersAndSort();
   } catch (err) {
     container.innerHTML = '<p>Error al cargar las recetas.</p>';
     console.error("Error al cargar recipes.json:", err);
   }
 
-  // Event Listeners para todos los filtros y ordenamiento
   searchInput.addEventListener('input', applyFiltersAndSort);
   sortSelect.addEventListener('change', applyFiltersAndSort);
   categoryFilter.addEventListener('change', applyFiltersAndSort);
@@ -34,12 +30,9 @@ export async function loadRecipes() {
   mediumFilter.addEventListener('change', applyFiltersAndSort);
   servingsFilter.addEventListener('input', applyFiltersAndSort);
 
-
-  // Función central para aplicar todos los filtros y ordenar
   function applyFiltersAndSort() {
-    let filteredRecipes = [...allRecipes]; // Siempre todas las recetas al empezar
+    let filteredRecipes = [...allRecipes];
 
-    // Filtrar por búsqueda de título/descripción/ingredientes
     const searchTerm = searchInput.value.toLowerCase().trim();
     if (searchTerm) {
       filteredRecipes = filteredRecipes.filter(recipe =>
@@ -49,37 +42,29 @@ export async function loadRecipes() {
       );
     }
 
-    // Filtrar por Categoría
     const selectedCategory = categoryFilter.value;
     if (selectedCategory) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.category === selectedCategory);
     }
 
-    // Filtrar por Premium
     if (premiumFilter.checked) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.isPremium);
     }
 
-    // 4. Filtrar por Dificultad
     const selectedDifficulties = [];
     if (easyFilter.checked) selectedDifficulties.push('Fácil');
     if (mediumFilter.checked) selectedDifficulties.push('Media');
-    // TODO 'Difícil' en JSON al agregar la dificultad difícil:
-    // if (hardFilter && hardFilter.checked) selectedDifficulties.push('Difícil');
-
     if (selectedDifficulties.length > 0) {
       filteredRecipes = filteredRecipes.filter(recipe =>
         selectedDifficulties.includes(recipe.difficulty)
       );
     }
 
-    // Filtrar por Raciones
     const minServings = parseInt(servingsFilter.value);
     if (!isNaN(minServings) && minServings > 0) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.servings >= minServings);
     }
 
-    // Ordenar
     const sortBy = sortSelect.value;
     switch (sortBy) {
       case 'az':
@@ -89,33 +74,22 @@ export async function loadRecipes() {
         filteredRecipes.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case 'timeAsc':
-        filteredRecipes.sort((a, b) => {
-          // Convierto "10 min" a 10 para poder comparar
-          const timeA = parseInt(a.time.replace(' min', ''));
-          const timeB = parseInt(b.time.replace(' min', ''));
-          return timeA - timeB;
-        });
+        filteredRecipes.sort((a, b) => parseInt(a.time) - parseInt(b.time));
         break;
       case 'timeDesc':
-        filteredRecipes.sort((a, b) => {
-          const timeA = parseInt(a.time.replace(' min', ''));
-          const timeB = parseInt(b.time.replace(' min', ''));
-          return timeB - timeA;
-        });
+        filteredRecipes.sort((a, b) => parseInt(b.time) - parseInt(a.time));
         break;
       case 'servingsAsc':
-        filteredRecipes.sort((a, b) => (a.servings || 0) - (b.servings || 0)); // handle potential undefined
+        filteredRecipes.sort((a, b) => (a.servings || 0) - (b.servings || 0));
         break;
       case 'servingsDesc':
-        filteredRecipes.sort((a, b) => (b.servings || 0) - (a.servings || 0)); // handle potential undefined
+        filteredRecipes.sort((a, b) => (b.servings || 0) - (a.servings || 0));
         break;
-      // Puedo añadir más opciones de ordenación aquí
     }
 
-    displayRecipes(filteredRecipes); // Actualizar la vista con las recetas filtradas y ordenadas
+    displayRecipes(filteredRecipes);
   }
 
-  // Función para renderizar las recetas en el DOM
   function displayRecipes(recetas) {
     if (recetas.length === 0) {
       container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
@@ -135,15 +109,9 @@ export async function loadRecipes() {
     `).join('');
   }
 
-  // Función para poblar dinámicamente las opciones del filtro de categoría
-  // Esto es útil para no actualizar el HTML si tengo que añadir nuevas categorías
   function populateCategoryFilter(recipes) {
-    // Obtener categorías únicas y ordenarlas alfabéticamente
     const categories = [...new Set(recipes.map(r => r.category))].sort();
-
-    // Asegurarme de que 'Todas las Categorías' sea la primera opción
     categoryFilter.innerHTML = '<option value="">Todas las Categorías</option>';
-
     categories.forEach(cat => {
       const option = document.createElement('option');
       option.value = cat;
@@ -151,5 +119,41 @@ export async function loadRecipes() {
       categoryFilter.appendChild(option);
     });
   }
-}
 
+  // ✅ NUEVO: Click en receta
+  document.getElementById('recipesContainer').addEventListener('click', (e) => {
+    const card = e.target.closest('.recipe-card');
+    if (!card) return;
+
+    const title = card.querySelector('h3').textContent;
+    const recipe = allRecipes.find(r => r.title === title);
+    if (!recipe) return;
+
+    const user = JSON.parse(localStorage.getItem('loggedUser'));
+    const isPremiumUser = user?.isPremium;
+
+    if (recipe.isPremium && !isPremiumUser) {
+      showUpgradeModal();
+      return;
+    }
+
+    window.location.href = `/routes/receta.html?id=${recipe.id}`;
+  });
+
+  function showUpgradeModal() {
+    const modal = document.createElement('div');
+    modal.classList.add('modal-overlay');
+    modal.innerHTML = `
+      <div class="modal">
+        <h2>¡Contenido Premium!</h2>
+        <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
+        <a href="/#/dashboard" class="btn-upgrade">Mejorar Plan</a>
+        <button id="closeModal">Cerrar</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    document.getElementById('closeModal').addEventListener('click', () => {
+      modal.remove();
+    });
+  }
+}
