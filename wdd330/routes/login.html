@@ -1,12 +1,13 @@
-<section>
-  <h2>Iniciar Sesión</h2>
-  <form>
-    <label>Email:
-      <input type="email" required />
-    </label>
-    <label>Contraseña:
-      <input type="password" required />
-    </label>
-    <button type="submit">Entrar</button>
+<section class="login-container">
+  <h2>Iniciar sesión</h2>
+  <form id="loginForm">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Ingresar</button>
+    <p id="loginError" class="error-message"></p>
   </form>
 </section>

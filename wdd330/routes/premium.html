@@ -1,4 +1,28 @@
-<section>
-  <h2>Recetas Premium</h2>
-  <p>Contenido exclusivo para miembros premium. ¡Sube de nivel!</p>
+<section class="premium-section">
+  <!-- Columna 1 -->
+  <div class="user-health-form">
+    <h3>Tu información corporal</h3>
+    <form id="health-form">
+      <label>
+        Peso (kg):
+        <input type="number" id="peso" required>
+      </label>
+      <label>
+        Altura (cm):
+        <input type="number" id="altura" required>
+      </label>
+      <label>
+        ¿Qué comiste hoy?
+        <textarea id="comida" rows="3" required></textarea>
+      </label>
+      <button id="calculateBtn">Calcular y Obtener Consejo</button>
+    </form>
+  </div>
+
+  <!-- Columna 2 -->
+  <div class="resultado-y-consejo">
+    <div id="resultado-calorias" class="ai-box"></div>
+    <div id="consejo-ai" class="ai-box"></div>
+    <canvas id="graficoIMC" width="300" height="200"></canvas>
+  </div>
 </section>
