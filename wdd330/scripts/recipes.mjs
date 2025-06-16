@@ -1,3 +1,5 @@
+import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
+
 export async function loadRecipes() {
   const container = document.getElementById('recipesContainer');
   const searchInput = document.getElementById('searchInput');
@@ -13,8 +15,6 @@ export async function loadRecipes() {
   try {
     const res = await fetch('public/data/recipes.json');
     allRecipes = await res.json();
-    console.log("Recetas cargadas:", allRecipes);
-
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
   } catch (err) {
@@ -120,7 +120,6 @@ export async function loadRecipes() {
     });
   }
 
-  // ✅ NUEVO: Click en receta
   document.getElementById('recipesContainer').addEventListener('click', (e) => {
     const card = e.target.closest('.recipe-card');
     if (!card) return;
@@ -129,10 +128,9 @@ export async function loadRecipes() {
     const recipe = allRecipes.find(r => r.title === title);
     if (!recipe) return;
 
-    const user = JSON.parse(localStorage.getItem('loggedUser'));
-    const isPremiumUser = user?.isPremium;
+    const user = getLoggedInUser();
 
-    if (recipe.isPremium && !isPremiumUser) {
+    if (recipe.isPremium && !isPremiumUser(user)) {
       showUpgradeModal();
       return;
     }
@@ -157,3 +155,4 @@ export async function loadRecipes() {
     });
   }
 }
+
