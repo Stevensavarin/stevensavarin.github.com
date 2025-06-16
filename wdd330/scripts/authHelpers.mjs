@@ -25,3 +25,7 @@ export function updateNavbarAuthState() {
     dashboardLink.style.display = 'none';
   }
 }
+
+export function isPremiumUser(user) {
+  return user?.roles?.includes('premium');
+}
