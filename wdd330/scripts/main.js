@@ -1,5 +1,6 @@
 import { router } from './router.mjs';
 import { updateNavbarAuthState, logoutUser } from './authHelpers.mjs';
+import { setupHamburgerMenu } from './utils.mjs';
 
 async function init() {
   await router();
@@ -9,10 +10,14 @@ async function init() {
   if (logoutLink) {
     logoutLink.addEventListener('click', (e) => {
       e.preventDefault();
-      logoutUser(); // usás el nombre correcto aquí
+      logoutUser();
     });
   }
 }
 
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', () => {
+  setupHamburgerMenu(); // Se asegura de enlazar el botón siempre
+  init();
+});
+
 window.addEventListener('hashchange', init);

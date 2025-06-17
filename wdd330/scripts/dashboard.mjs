@@ -17,10 +17,10 @@ export function initDashboard() {
   loadNews();
   loadDailyRecipe();
 
-  document.getElementById('logoutBtn').addEventListener('click', (e) => {
-    e.preventDefault();
-    logoutUser();
-  });
+  //document.getElementById('logoutBtn').addEventListener('click', (e) => {
+   // e.preventDefault();
+   // logoutUser();
+ // });
 }
 
 // Noticias foodie
