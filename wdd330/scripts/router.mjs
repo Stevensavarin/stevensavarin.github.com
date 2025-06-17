@@ -6,10 +6,13 @@ export async function router() {
     '/recetas': 'routes/recipes.html',
     '/premium': 'routes/premium.html',
     '/login': 'routes/login.html',
-    '/dashboard': 'routes/dashboard.html'
+    '/dashboard': 'routes/dashboard.html',
+    '/receta': 'routes/receta.html'
   };
 
-  let path = location.hash.slice(1).toLowerCase() || '/';
+  let fullPath = location.hash.slice(1).toLowerCase();
+  let path = fullPath.split('?')[0];
+
   const route = routes[path] || 'routes/not-found.html';
 
   const user = getLoggedInUser();
@@ -28,13 +31,32 @@ export async function router() {
     const html = await fetch(route).then(res => res.text());
     document.getElementById('app').innerHTML = html;
 
-    if (path === '/login') import('./login.mjs').then(m => m.initLogin());
-    if (path === '/dashboard') import('./dashboard.mjs').then(m => m.initDashboard?.());
-    if (path === '/recetas') import('./recipes.mjs').then(m => m.loadRecipes?.());
-    if (path === '/premium') import('./premium.mjs').then(m => m.initPremium?.());
+    console.log(`Router: Cargando ruta: ${path}`);
+
+    if (path === '/login') {
+        import('./login.mjs').then(m => m.initLogin?.());
+    } else if (path === '/dashboard') {
+        import('./dashboard.mjs').then(m => m.initDashboard?.());
+    } else if (path === '/recetas') {
+        import('./recipes.mjs').then(m => m.loadRecipes?.());
+    } else if (path === '/premium') {
+        import('./premium.mjs').then(m => m.initPremium?.());
+    } else if (path === '/receta') {
+        console.log("Router: Intentando cargar recetaDetalle.mjs para /receta");
+        import('./recetaDetalle.mjs').then(m => {
+            if (m.loadRecipeDetail) {
+                console.log("Router: Llamando a m.loadRecipeDetail()");
+                m.loadRecipeDetail();
+            } else {
+                console.error("Error: loadRecipeDetail no está exportada en recetaDetalle.mjs o no es una función.");
+            }
+        }).catch(err => {
+            console.error("Error al importar recetaDetalle.mjs:", err);
+        });
+    }
   } catch (err) {
+    console.error("Error al cargar la página:", err);
     document.getElementById('app').innerHTML = '<h2>Error al cargar la página.</h2>';
   }
 }
 
-// Week 05

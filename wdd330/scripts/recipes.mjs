@@ -9,7 +9,6 @@ export async function loadRecipes() {
   const easyFilter = document.getElementById('easyFilter');
   const mediumFilter = document.getElementById('mediumFilter');
   const servingsFilter = document.getElementById('servingsFilter');
-  // Nuevo: Elemento para el filtro de favoritos
   const favoritesFilter = document.getElementById('favoritesFilter');
 
   let allRecipes = [];
@@ -31,12 +30,10 @@ export async function loadRecipes() {
   easyFilter.addEventListener('change', applyFiltersAndSort);
   mediumFilter.addEventListener('change', applyFiltersAndSort);
   servingsFilter.addEventListener('input', applyFiltersAndSort);
-  // Nuevo: Event Listener para el filtro de favoritos
   favoritesFilter.addEventListener('change', applyFiltersAndSort);
 
   function applyFiltersAndSort() {
     let filteredRecipes = [...allRecipes];
-    // Obtener los favoritos actuales para usar en el filtrado y la visualización
     const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     const searchTerm = searchInput.value.toLowerCase().trim();
@@ -71,7 +68,6 @@ export async function loadRecipes() {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.servings >= minServings);
     }
 
-    // Nuevo: Filtrar por favoritos si el checkbox está marcado
     if (favoritesFilter.checked) {
       filteredRecipes = filteredRecipes.filter(recipe =>
         currentFavorites.includes(recipe.id)
@@ -129,7 +125,6 @@ export async function loadRecipes() {
       `;
     }).join('');
 
-    // Nuevo: Añadir event listeners a los botones de favoritos
     document.querySelectorAll('.favorite-btn').forEach(btn => {
       btn.addEventListener('click', (event) => {
         const id = parseInt(event.currentTarget.dataset.id);
@@ -144,8 +139,6 @@ export async function loadRecipes() {
         }
 
         localStorage.setItem('favorites', JSON.stringify(currentFavorites));
-
-        // Volver a aplicar filtros y ordenar para actualizar la vista (cambiar el corazón, aplicar filtro de favoritos si está activo)
         applyFiltersAndSort();
       });
     });
@@ -166,9 +159,8 @@ export async function loadRecipes() {
     const card = e.target.closest('.recipe-card');
     if (!card) return;
 
-    // Asegurarse de no estar haciendo clic en el botón de favoritos, sino en la tarjeta de la receta
     if (e.target.classList.contains('favorite-btn')) {
-      return; // Si el click fue en el botón de favoritos, no hacer nada más aquí
+      return;
     }
 
     const title = card.querySelector('h3').textContent;
@@ -182,7 +174,7 @@ export async function loadRecipes() {
       return;
     }
 
-    window.location.href = `/routes/receta.html?id=${recipe.id}`;
+    window.location.href = `/#/receta?id=${recipe.id}`;
   });
 
   function showUpgradeModal() {
