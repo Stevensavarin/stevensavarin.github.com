@@ -14,7 +14,7 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    const res = await fetch('public/data/recipes.json');
+    const res = await fetch('./public/data/recipes.json');
     allRecipes = await res.json();
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
