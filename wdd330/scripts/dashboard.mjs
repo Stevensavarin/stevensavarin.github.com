@@ -47,7 +47,7 @@ async function loadNews() {
   }
 }
 
-// 🍽 Receta Aleatoria Spoonacular
+// Receta Aleatoria Spoonacular
 async function loadDailyRecipe() {
   try {
     const url = `https://api.spoonacular.com/recipes/random?apiKey=${SPOON_KEY}&number=1`;
