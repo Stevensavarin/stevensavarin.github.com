@@ -10,7 +10,7 @@ async function loadRecipeDetail() {
   const id = parseInt(params.get('id'));
 
   try {
-    const res = await fetch('/public/data/recipes.json');
+    const res = await fetch('public/data/recipes.json');
     const data = await res.json();
     const recipe = data.find(r => r.id === id);
 
