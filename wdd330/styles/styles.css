@@ -80,6 +80,7 @@ main {
   background: #fff;
   position: relative;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .recipe-card:hover {
@@ -231,6 +232,22 @@ header nav ul li a:hover {
     background-color: var(--color-light-grey);
     border-radius: 8px;
     font-family: var(--font-text);
+}
+
+.recipe-card .favorite-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8rem; /*tamaño del corazón*/
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.recipe-card .favorite-btn:hover {
+    transform: scale(1.1);
 }
 
 /*Login*/
@@ -423,6 +440,7 @@ header nav ul li a:hover {
   display: inline-block;
   margin: 1rem 0;
 }
+
 .modal button {
   background: transparent;
   border: none;
