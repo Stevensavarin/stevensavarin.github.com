@@ -9,6 +9,8 @@ export async function loadRecipes() {
   const easyFilter = document.getElementById('easyFilter');
   const mediumFilter = document.getElementById('mediumFilter');
   const servingsFilter = document.getElementById('servingsFilter');
+  // Nuevo: Elemento para el filtro de favoritos
+  const favoritesFilter = document.getElementById('favoritesFilter');
 
   let allRecipes = [];
 
@@ -29,9 +31,13 @@ export async function loadRecipes() {
   easyFilter.addEventListener('change', applyFiltersAndSort);
   mediumFilter.addEventListener('change', applyFiltersAndSort);
   servingsFilter.addEventListener('input', applyFiltersAndSort);
+  // Nuevo: Event Listener para el filtro de favoritos
+  favoritesFilter.addEventListener('change', applyFiltersAndSort);
 
   function applyFiltersAndSort() {
     let filteredRecipes = [...allRecipes];
+    // Obtener los favoritos actuales para usar en el filtrado y la visualización
+    const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     const searchTerm = searchInput.value.toLowerCase().trim();
     if (searchTerm) {
@@ -65,6 +71,13 @@ export async function loadRecipes() {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.servings >= minServings);
     }
 
+    // Nuevo: Filtrar por favoritos si el checkbox está marcado
+    if (favoritesFilter.checked) {
+      filteredRecipes = filteredRecipes.filter(recipe =>
+        currentFavorites.includes(recipe.id)
+      );
+    }
+
     const sortBy = sortSelect.value;
     switch (sortBy) {
       case 'az':
@@ -91,22 +104,51 @@ export async function loadRecipes() {
   }
 
   function displayRecipes(recetas) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Obtener favoritos para el corazón
+
     if (recetas.length === 0) {
       container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
       return;
     }
 
-    container.innerHTML = recetas.map(recipe => `
-      <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
-        <img src="${recipe.image}" alt="${recipe.title}">
-        <h3>${recipe.title}</h3>
-        <p><strong>Tiempo:</strong> ${recipe.time}</p>
-        <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
-        <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
-        <p><strong>Categoría:</strong> ${recipe.category}</p>
-        ${recipe.isPremium ? '<span class="badge">Premium</span>' : ''}
-      </div>
-    `).join('');
+    container.innerHTML = recetas.map(recipe => {
+      const isFavorite = favorites.includes(recipe.id); // Verificar si la receta es favorita
+      return `
+        <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
+          <img src="${recipe.image}" alt="${recipe.title}">
+          <h3>${recipe.title}</h3>
+          <p><strong>Tiempo:</strong> ${recipe.time}</p>
+          <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
+          <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
+          <p><strong>Categoría:</strong> ${recipe.category}</p>
+          <button class="favorite-btn" data-id="${recipe.id}" title="Agregar a favoritos">
+            ${isFavorite ? '❤️' : '🤍'}
+          </button>
+          ${recipe.isPremium ? '<span class="badge">Premium</span>' : ''}
+        </div>
+      `;
+    }).join('');
+
+    // Nuevo: Añadir event listeners a los botones de favoritos
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+      btn.addEventListener('click', (event) => {
+        const id = parseInt(event.currentTarget.dataset.id);
+        let currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        if (currentFavorites.includes(id)) {
+          // Si ya es favorito, quitarlo
+          currentFavorites = currentFavorites.filter(favId => favId !== id);
+        } else {
+          // Si no es favorito, agregarlo
+          currentFavorites.push(id);
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+
+        // Volver a aplicar filtros y ordenar para actualizar la vista (cambiar el corazón, aplicar filtro de favoritos si está activo)
+        applyFiltersAndSort();
+      });
+    });
   }
 
   function populateCategoryFilter(recipes) {
@@ -123,6 +165,11 @@ export async function loadRecipes() {
   document.getElementById('recipesContainer').addEventListener('click', (e) => {
     const card = e.target.closest('.recipe-card');
     if (!card) return;
+
+    // Asegurarse de no estar haciendo clic en el botón de favoritos, sino en la tarjeta de la receta
+    if (e.target.classList.contains('favorite-btn')) {
+      return; // Si el click fue en el botón de favoritos, no hacer nada más aquí
+    }
 
     const title = card.querySelector('h3').textContent;
     const recipe = allRecipes.find(r => r.title === title);
