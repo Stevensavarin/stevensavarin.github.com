@@ -1,4 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
+import { REPO_BASE_URL } from './config.mjs';
 
 export async function loadRecipes() {
   const container = document.getElementById('recipesContainer');
@@ -14,7 +15,7 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    const res = await fetch('/public/data/recipes.json'); 
+    const res = await fetch(`${REPO_BASE_URL}public/data/recipes.json`); 
     allRecipes = await res.json();
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
@@ -132,7 +133,8 @@ export async function loadRecipes() {
       const isFavorite = favorites.includes(recipe.id);
       return `
         <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
-          <img src="/${recipe.image}" alt="${recipe.title}"> <h3>${recipe.title}</h3>
+          <img src="${REPO_BASE_URL}${recipe.image}" alt="${recipe.title}"> 
+          <h3>${recipe.title}</h3>
           <p><strong>Tiempo:</strong> ${recipe.time}</p>
           <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
           <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
@@ -186,7 +188,7 @@ export async function loadRecipes() {
       <div class="modal">
         <h2>¡Contenido Premium!</h2>
         <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
-        <a href="/#/dashboard" class="btn-upgrade">Mejorar Plan</a> 
+        <a href="${REPO_BASE_URL}#/dashboard" class="btn-upgrade">Mejorar Plan</a> 
         <button id="closeModal">Cerrar</button>
       </div>
     `;
