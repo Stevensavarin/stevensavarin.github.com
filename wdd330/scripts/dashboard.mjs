@@ -1,7 +1,7 @@
 import { getLoggedInUser, logoutUser, updateNavbarAuthState } from './authHelpers.mjs';
 
-//const MEDIASTACK_KEY = '96c243749ea99b5472e1a083113a7e42';
-//const SPOON_KEY = 'c2de76c79c9541b8b6b9dd30d7fd6c78';
+const MEDIASTACK_KEY = '96c243749ea99b5472e1a083113a7e42';
+const SPOON_KEY = 'c2de76c79c9541b8b6b9dd30d7fd6c78';
 
 export function initDashboard() {
   updateNavbarAuthState();
