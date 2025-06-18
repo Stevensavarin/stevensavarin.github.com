@@ -1,5 +1,4 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
-import { BASE_URL } from './config.mjs';
 
 export async function loadRecipes() {
   const container = document.getElementById('recipesContainer');
@@ -15,7 +14,7 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    const res = await fetch(`${BASE_URL}/public/data/recipes.json`);
+    const res = await fetch('/public/data/recipes.json');
     allRecipes = await res.json();
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
@@ -133,8 +132,7 @@ export async function loadRecipes() {
       const isFavorite = favorites.includes(recipe.id);
       return `
         <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
-          <img src="${BASE_URL}/${recipe.image}" alt="${recipe.title}">
-          <h3>${recipe.title}</h3>
+          <img src="/${recipe.image}" alt="${recipe.title}"> <h3>${recipe.title}</h3>
           <p><strong>Tiempo:</strong> ${recipe.time}</p>
           <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
           <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
@@ -181,26 +179,28 @@ export async function loadRecipes() {
     window.location.href = `/#/receta?id=${recipe.id}`;
   });
 
-   function showUpgradeModal() {
+  function showUpgradeModal() {
     const modal = document.createElement('div');
     modal.classList.add('modal-overlay');
     modal.innerHTML = `
       <div class="modal">
         <h2>¡Contenido Premium!</h2>
         <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
-        <a href="${BASE_URL}/#/login" class="btn-upgrade">Mejorar Plan</a>
+        <a href="/#/login" class="btn-upgrade">Mejorar Plan</a>
         <button id="closeModal">Cerrar</button>
       </div>
     `;
     document.body.appendChild(modal);
+
     document.getElementById('closeModal').addEventListener('click', () => {
       modal.remove();
     });
-    
+
     modal.querySelector('.btn-upgrade').addEventListener('click', (e) => {
-      e.preventDefault(); 
-      modal.remove(); 
-      window.location.href = e.currentTarget.href;
+      e.preventDefault();
+      modal.remove();
+      
+      window.location.href = e.currentTarget.href; 
     });
   }
 }
