@@ -1,4 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
+import { BASE_URL } from './config.mjs';
 
 export async function router() {
   const routes = {
@@ -13,7 +14,10 @@ export async function router() {
   let fullPath = location.hash.slice(1).toLowerCase();
   let path = fullPath.split('?')[0];
 
-  const route = routes[path] || 'routes/not-found.html';
+  let targetRouteHtml = routes[path];
+  if (!targetRouteHtml) {
+    targetRouteHtml = 'routes/not-found.html';
+  }
 
   const user = getLoggedInUser();
 
@@ -21,42 +25,37 @@ export async function router() {
     document.getElementById('app').innerHTML = `
       <section class="denied">
         <h2>Acceso denegado</h2>
-        <p>Debes tener una suscripción premium para acceder a esta sección.</p>
-        <a href="#/dashboard" class="btn">Actualizar plan</a>
+        <p>Esta sección es solo para usuarios premium.</p>
+        <a href="${BASE_URL}/#/dashboard" class="btn">Actualizar plan</a>
       </section>`;
     return;
   }
 
   try {
-    const html = await fetch(route).then(res => res.text());
+    const html = await fetch(`${BASE_URL}/${targetRouteHtml}`).then(res => res.text());
     document.getElementById('app').innerHTML = html;
 
-    console.log(`Router: Cargando ruta: ${path}`);
-
     if (path === '/login') {
-        import('./login.mjs').then(m => m.initLogin?.());
+      import('./login.mjs').then(m => m.initLogin?.());
     } else if (path === '/dashboard') {
-        import('./dashboard.mjs').then(m => m.initDashboard?.());
+      import('./dashboard.mjs').then(m => m.initDashboard?.());
     } else if (path === '/recetas') {
-        import('./recipes.mjs').then(m => m.loadRecipes?.());
+      import('./recipes.mjs').then(m => m.loadRecipes?.());
     } else if (path === '/premium') {
-        import('./premium.mjs').then(m => m.initPremium?.());
+      import('./premium.mjs').then(m => m.initPremium?.());
     } else if (path === '/receta') {
-        console.log("Router: Intentando cargar recetaDetalle.mjs para /receta");
-        import('./recetaDetalle.mjs').then(m => {
-            if (m.loadRecipeDetail) {
-                console.log("Router: Llamando a m.loadRecipeDetail()");
-                m.loadRecipeDetail();
-            } else {
-                console.error("Error: loadRecipeDetail no está exportada en recetaDetalle.mjs o no es una función.");
-            }
-        }).catch(err => {
-            console.error("Error al importar recetaDetalle.mjs:", err);
-        });
+      import('./recetaDetalle.mjs').then(m => {
+        if (m.loadRecipeDetail) {
+          m.loadRecipeDetail();
+        } else {
+          console.error("Error: loadRecipeDetail no está exportada en recetaDetalle.mjs o no es una función.");
+        }
+      }).catch(err => {
+        console.error("Error al importar recetaDetalle.mjs:", err);
+      });
     }
   } catch (err) {
     console.error("Error al cargar la página:", err);
     document.getElementById('app').innerHTML = '<h2>Error al cargar la página.</h2>';
   }
 }
-
