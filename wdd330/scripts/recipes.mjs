@@ -1,5 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
-import { REPO_BASE_URL } from './config.mjs';
+import { REPO_PATH_SEGMENT } from './config.mjs';
 
 export async function loadRecipes() {
   console.log("recipes.mjs: loadRecipes() iniciado.");
@@ -16,10 +16,11 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    console.log(`recipes.mjs: Fetching recipes.json from: ${REPO_BASE_URL}public/data/recipes.json`);
-    const res = await fetch(`${REPO_BASE_URL}public/data/recipes.json`); 
+    const fullJsonUrl = `${window.location.origin}${REPO_PATH_SEGMENT}public/data/recipes.json`;
+    console.log(`recipes.mjs: Fetching recipes.json from: ${fullJsonUrl}`);
+    const res = await fetch(fullJsonUrl); 
     if (!res.ok) {
-      console.error(`recipes.mjs: Error fetching recipes.json. URL: ${REPO_BASE_URL}public/data/recipes.json Status: ${res.status}`);
+      console.error(`recipes.mjs: Error fetching recipes.json. URL: ${fullJsonUrl} Status: ${res.status}`);
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     allRecipes = await res.json();
@@ -162,7 +163,7 @@ export async function loadRecipes() {
       const isFavorite = favorites.includes(recipe.id);
       return `
         <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
-          <img src="${REPO_BASE_URL}${recipe.image}" alt="${recipe.title}"> 
+          <img src="${window.location.origin}${REPO_PATH_SEGMENT}${recipe.image}" alt="${recipe.title}"> 
           <h3>${recipe.title}</h3>
           <p><strong>Tiempo:</strong> ${recipe.time}</p>
           <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
@@ -232,7 +233,7 @@ export async function loadRecipes() {
       <div class="modal">
         <h2>¡Contenido Premium!</h2>
         <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
-        <a href="${REPO_BASE_URL}#/dashboard" class="btn-upgrade">Mejorar Plan</a> 
+        <a href="${window.location.origin}${REPO_PATH_SEGMENT}#/dashboard" class="btn-upgrade">Mejorar Plan</a> 
         <button id="closeModal">Cerrar</button>
       </div>
     `;
