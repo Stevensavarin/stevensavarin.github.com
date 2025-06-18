@@ -1,4 +1,3 @@
-// scripts/recipes.mjs
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
 import { REPO_BASE_URL } from './config.mjs';
 
@@ -20,7 +19,7 @@ export async function loadRecipes() {
     console.log(`recipes.mjs: Fetching recipes.json from: ${REPO_BASE_URL}public/data/recipes.json`);
     const res = await fetch(`${REPO_BASE_URL}public/data/recipes.json`); 
     if (!res.ok) {
-      console.error(`recipes.mjs: Error fetching recipes.json. Status: ${res.status}`);
+      console.error(`recipes.mjs: Error fetching recipes.json. URL: ${REPO_BASE_URL}public/data/recipes.json Status: ${res.status}`);
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     allRecipes = await res.json();
