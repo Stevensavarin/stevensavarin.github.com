@@ -16,18 +16,19 @@ export function initDashboard() {
 
   loadNews();
   loadDailyRecipe();
-
-  //document.getElementById('logoutBtn').addEventListener('click', (e) => {
-   // e.preventDefault();
-   // logoutUser();
- // });
 }
 
 // Noticias foodie
 async function loadNews() {
   try {
-    const url = `http://api.mediastack.com/v1/news?access_key=${MEDIASTACK_KEY}&languages=es&keywords=gastronomía&limit=3`;
+    const url = `https://api.mediastack.com/v1/news?access_key=${MEDIASTACK_KEY}&languages=es&keywords=gastronomía&limit=3`;
     const res = await fetch(url);
+    
+    if (!res.ok) {
+        console.error(`Error fetching news: HTTP status ${res.status}`);
+        throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
     const data = await res.json();
     const items = data.data || [];
 
@@ -52,6 +53,12 @@ async function loadDailyRecipe() {
   try {
     const url = `https://api.spoonacular.com/recipes/random?apiKey=${SPOON_KEY}&number=1`;
     const res = await fetch(url);
+    
+    if (!res.ok) {
+        console.error(`Error fetching daily recipe: HTTP status ${res.status}`);
+        throw new Error(`HTTP error! Status: ${res.status}`);
+    }
+
     const data = await res.json();
     const r = data.recipes?.[0];
     if (!r) throw new Error('No hay receta');
@@ -59,7 +66,7 @@ async function loadDailyRecipe() {
     document.getElementById('daily-recipe').innerHTML = `
       <img src="${r.image}" alt="${r.title}">
       <h4>${r.title}</h4>
-      <p>Tiempo: ${r.readyInMinutes} min · Porciones: ${r.servings}</p>
+      <p>Tiempo: ${r.readyInMinutes} min · Porciones: ${r.servings}</p>
       <a href="${r.sourceUrl}" target="_blank" class="btn">Ver receta completa</a>
     `;
   } catch (err) {
@@ -67,3 +74,5 @@ async function loadDailyRecipe() {
     document.getElementById('daily-recipe').innerHTML = `<p>Error cargando receta.</p>`;
   }
 }
+
+
