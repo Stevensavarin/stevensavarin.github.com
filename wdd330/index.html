@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eat Healthy</title>
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link rel="icon" href="public/images/icon.png" />
+  <link rel="stylesheet" href="styles/styles.css" /> 
+  <link rel="icon" href="public/images/icon.png" /> 
 </head>
 <body>
   <header>
     <div class="container">
       <h1>
-      <a href="#/" class="logo-link" aria-label="Volver al inicio">
-        <img src="public/images/food.png" alt="Eat Healthy Logo" class="header-logo">
-        <span class="logo-text">Eat Healthy</span>
+        <a href="#/" class="logo-link" aria-label="Volver al inicio">
+          <img src="public/images/food.png" alt="Eat Healthy Logo" class="header-logo"> 
+          <span class="logo-text">Eat Healthy</span>
         </a>
-    </h1>
+      </h1>
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">&#9776;</button>
       <nav>
         <ul>
@@ -31,13 +31,16 @@
   </header>
 
   <main id="app">
-    <!-- Aquí se cargan las vistas dinámicas -->
-  </main>
+    </main>
 
   <footer>
     <p>&copy; 2025 Eat Healthy. Todos los derechos reservados.</p>
   </footer>
 
   <script type="module" src="scripts/main.js"></script>
+  <script type="module">
+    import { setupBaseUrl } from './scripts/early-load.mjs';
+    setupBaseUrl();
+  </script>
 </body>
 </html>

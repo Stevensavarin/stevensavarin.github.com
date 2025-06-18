@@ -1,5 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
-import { BASE_URL } from './config.mjs';
+
 
 export async function router() {
   const routes = {
@@ -26,13 +26,12 @@ export async function router() {
       <section class="denied">
         <h2>Acceso denegado</h2>
         <p>Esta sección es solo para usuarios premium.</p>
-        <a href="${BASE_URL}/#/dashboard" class="btn">Actualizar plan</a>
-      </section>`;
+        <a href="/#/dashboard" class="btn">Actualizar plan</a> </section>`;
     return;
   }
 
   try {
-    const html = await fetch(`${BASE_URL}/${targetRouteHtml}`).then(res => res.text());
+    const html = await fetch(`/${targetRouteHtml}`).then(res => res.text());
     document.getElementById('app').innerHTML = html;
 
     if (path === '/login') {
@@ -59,3 +58,4 @@ export async function router() {
     document.getElementById('app').innerHTML = '<h2>Error al cargar la página.</h2>';
   }
 }
+
