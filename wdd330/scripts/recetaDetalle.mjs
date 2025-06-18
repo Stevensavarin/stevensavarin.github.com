@@ -50,7 +50,7 @@ export async function loadRecipeDetail() {
     console.log('recetaDetalle.mjs: User desde script:', user); 
     console.log('recetaDetalle.mjs: ¿Es usuario premium?', userIsPremium);
 
-    try {
+   try {
         const fullJsonUrl = `${window.location.origin}${REPO_BASE_URL}public/data/recipes.json`;
         console.log(`recetaDetalle.mjs: Fetching recipes.json from: ${fullJsonUrl}`);
         const res = await fetch(fullJsonUrl); 

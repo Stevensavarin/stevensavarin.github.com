@@ -36,7 +36,7 @@ export async function router() {
     return;
   }
 
-  try {
+   try {
     const fullHtmlFetchUrl = `${window.location.origin}${REPO_BASE_URL}${targetRouteHtml}`;
     console.log(`router.mjs: Preparando fetch para HTML: ${fullHtmlFetchUrl}`);
     

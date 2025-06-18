@@ -221,8 +221,9 @@ export async function loadRecipes() {
       return;
     }
 
-    console.log(`recipes.mjs: Navegando a detalle de receta: /#/receta?id=${recipe.id}`);
-    window.location.href = `/#/receta?id=${recipe.id}`;
+    const navigateToUrl = `${window.location.origin}${REPO_BASE_URL}#/receta?id=${recipe.id}`;
+    console.log(`recipes.mjs: Navegando a detalle de receta (URL completa): ${navigateToUrl}`);
+    window.location.href = navigateToUrl;
   });
 
   function showUpgradeModal() {
