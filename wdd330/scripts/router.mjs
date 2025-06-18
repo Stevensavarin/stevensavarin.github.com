@@ -25,13 +25,16 @@ export async function router() {
       <section class="denied">
         <h2>Acceso denegado</h2>
         <p>Esta sección es solo para usuarios premium.</p>
-        <a href="/#/dashboard" class="btn">Actualizar plan</a> 
+        <a href="/#/dashboard" class="btn">Actualizar plan</a>
       </section>`;
     return;
   }
 
   try {
-    const html = await fetch(`/${targetRouteHtml}`).then(res => res.text()); 
+    const fullUrlToFetch = `${window.location.origin}${window.location.pathname}${targetRouteHtml}`;
+    const cleanedUrlToFetch = fullUrlToFetch.replace(/\/\/+/g, '/').replace(':/','://');
+
+    const html = await fetch(cleanedUrlToFetch).then(res => res.text());
     document.getElementById('app').innerHTML = html;
 
     if (path === '/login') {
