@@ -2,7 +2,7 @@ import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
 import { REPO_BASE_URL } from './config.mjs';
 
 export async function loadRecipes() {
-  console.log("recipes.mjs: loadRecipes() iniciado.");
+  //console.log("recipes.mjs: loadRecipes() iniciado.");
   const container = document.getElementById('recipesContainer');
   const searchInput = document.getElementById('searchInput');
   const sortSelect = document.getElementById('sortSelect');
@@ -17,27 +17,27 @@ export async function loadRecipes() {
 
   try {
     const fullJsonUrl = `${window.location.origin}${REPO_BASE_URL}public/data/recipes.json`;
-    console.log(`recipes.mjs: Fetching recipes.json from: ${fullJsonUrl}`);
+    //console.log(`recipes.mjs: Fetching recipes.json from: ${fullJsonUrl}`);
     const res = await fetch(fullJsonUrl); 
     if (!res.ok) {
-      console.error(`recipes.mjs: Error fetching recipes.json. URL: ${fullJsonUrl} Status: ${res.status}`);
+      //console.error(`recipes.mjs: Error fetching recipes.json. URL: ${fullJsonUrl} Status: ${res.status}`);
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     allRecipes = await res.json();
-    console.log("recipes.mjs: Recetas cargadas exitosamente.");
+    //console.log("recipes.mjs: Recetas cargadas exitosamente.");
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
   } catch (err) {
-    console.error("recipes.mjs: Error al cargar recipes.json:", err);
+    //console.error("recipes.mjs: Error al cargar recipes.json:", err);
     if (container) {
       container.innerHTML = '<p>Error al cargar las recetas.</p>';
     } else {
-      console.error("recipes.mjs: recipesContainer no encontrado para mostrar error.");
+      //console.error("recipes.mjs: recipesContainer no encontrado para mostrar error.");
     }
   }
 
   const handleFavoriteButtonClick = (event) => {
-    console.log("recipes.mjs: Clic en botón de favorito detectado.");
+    //console.log("recipes.mjs: Clic en botón de favorito detectado.");
     const btn = event.target.closest('.favorite-btn');
     if (btn) {
       const id = parseInt(btn.dataset.id);
@@ -45,10 +45,10 @@ export async function loadRecipes() {
 
       if (currentFavorites.includes(id)) {
         currentFavorites = currentFavorites.filter(favId => favId !== id);
-        console.log(`recipes.mjs: Receta ${id} eliminada de favoritos.`);
+        //console.log(`recipes.mjs: Receta ${id} eliminada de favoritos.`);
       } else {
         currentFavorites.push(id);
-        console.log(`recipes.mjs: Receta ${id} añadida a favoritos.`);
+        //console.log(`recipes.mjs: Receta ${id} añadida a favoritos.`);
       }
 
       localStorage.setItem('favorites', JSON.stringify(currentFavorites));
@@ -58,9 +58,9 @@ export async function loadRecipes() {
 
   if (container) {
       container.addEventListener('click', handleFavoriteButtonClick);
-      console.log("recipes.mjs: Listener de delegación de favoritos adjunto al container.");
+      //console.log("recipes.mjs: Listener de delegación de favoritos adjunto al container.");
   } else {
-      console.error("recipes.mjs: recipesContainer no encontrado para adjuntar listener de favoritos.");
+      //console.error("recipes.mjs: recipesContainer no encontrado para adjuntar listener de favoritos.");
   }
 
   searchInput.addEventListener('input', applyFiltersAndSort);
@@ -71,10 +71,10 @@ export async function loadRecipes() {
   mediumFilter.addEventListener('change', applyFiltersAndSort);
   servingsFilter.addEventListener('input', applyFiltersAndSort);
   favoritesFilter.addEventListener('change', applyFiltersAndSort);
-  console.log("recipes.mjs: Listeners de filtros y ordenamiento adjuntos.");
+  //console.log("recipes.mjs: Listeners de filtros y ordenamiento adjuntos.");
 
   function applyFiltersAndSort() {
-    console.log("recipes.mjs: applyFiltersAndSort() iniciado.");
+    //console.log("recipes.mjs: applyFiltersAndSort() iniciado.");
     let filteredRecipes = [...allRecipes];
     const currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
@@ -85,18 +85,18 @@ export async function loadRecipes() {
         recipe.instructions.toLowerCase().includes(searchTerm) ||
         (recipe.ingredients && recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm)))
       );
-      console.log(`recipes.mjs: Filtrado por término: '${searchTerm}'. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por término: '${searchTerm}'. Resultados: ${filteredRecipes.length}`);
     }
 
     const selectedCategory = categoryFilter.value;
     if (selectedCategory) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.category === selectedCategory);
-      console.log(`recipes.mjs: Filtrado por categoría: '${selectedCategory}'. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por categoría: '${selectedCategory}'. Resultados: ${filteredRecipes.length}`);
     }
 
     if (premiumFilter.checked) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.isPremium);
-      console.log(`recipes.mjs: Filtrado por Premium. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por Premium. Resultados: ${filteredRecipes.length}`);
     }
 
     const selectedDifficulties = [];
@@ -106,24 +106,24 @@ export async function loadRecipes() {
       filteredRecipes = filteredRecipes.filter(recipe =>
         selectedDifficulties.includes(recipe.difficulty)
       );
-      console.log(`recipes.mjs: Filtrado por dificultad: ${selectedDifficulties.join(', ')}. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por dificultad: ${selectedDifficulties.join(', ')}. Resultados: ${filteredRecipes.length}`);
     }
 
     const minServings = parseInt(servingsFilter.value);
     if (!isNaN(minServings) && minServings > 0) {
       filteredRecipes = filteredRecipes.filter(recipe => recipe.servings >= minServings);
-      console.log(`recipes.mjs: Filtrado por raciones mínimas: ${minServings}. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por raciones mínimas: ${minServings}. Resultados: ${filteredRecipes.length}`);
     }
 
     if (favoritesFilter.checked) {
       filteredRecipes = filteredRecipes.filter(recipe =>
         currentFavorites.includes(recipe.id)
       );
-      console.log(`recipes.mjs: Filtrado por favoritos. Resultados: ${filteredRecipes.length}`);
+      //console.log(`recipes.mjs: Filtrado por favoritos. Resultados: ${filteredRecipes.length}`);
     }
 
     const sortBy = sortSelect.value;
-    console.log(`recipes.mjs: Ordenando por: ${sortBy}`);
+    //console.log(`recipes.mjs: Ordenando por: ${sortBy}`);
     switch (sortBy) {
       case 'az':
         filteredRecipes.sort((a, b) => a.title.localeCompare(b.title));
@@ -146,16 +146,16 @@ export async function loadRecipes() {
     }
 
     displayRecipes(filteredRecipes);
-    console.log("recipes.mjs: applyFiltersAndSort() finalizado.");
+    //console.log("recipes.mjs: applyFiltersAndSort() finalizado.");
   }
 
   function displayRecipes(recetas) {
-    console.log(`recipes.mjs: displayRecipes() iniciado. Recetas a mostrar: ${recetas.length}`);
+    //console.log(`recipes.mjs: displayRecipes() iniciado. Recetas a mostrar: ${recetas.length}`);
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     if (recetas.length === 0) {
       container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
-      console.log("recipes.mjs: No se encontraron recetas, mostrando mensaje.");
+      //console.log("recipes.mjs: No se encontraron recetas, mostrando mensaje.");
       return;
     }
 
@@ -176,11 +176,11 @@ export async function loadRecipes() {
         </div>
       `;
     }).join('');
-    console.log("recipes.mjs: Recetas renderizadas.");
+    //console.log("recipes.mjs: Recetas renderizadas.");
   }
 
   function populateCategoryFilter(recipes) {
-    console.log("recipes.mjs: populateCategoryFilter() iniciado.");
+    //console.log("recipes.mjs: populateCategoryFilter() iniciado.");
     const categories = [...new Set(recipes.map(r => r.category))].sort();
     categoryFilter.innerHTML = '<option value="">Todas las Categorías</option>';
     categories.forEach(cat => {
@@ -189,45 +189,45 @@ export async function loadRecipes() {
       option.textContent = cat;
       categoryFilter.appendChild(option);
     });
-    console.log(`recipes.mjs: Filtro de categoría populado con ${categories.length} categorías.`);
+    //console.log(`recipes.mjs: Filtro de categoría populado con ${categories.length} categorías.`);
   }
 
   document.getElementById('recipesContainer').addEventListener('click', (e) => {
     console.log("recipes.mjs: Clic en recipesContainer detectado.");
     if (e.target.classList.contains('favorite-btn')) {
-      console.log("recipes.mjs: Clic en botón de favorito, ignorando navegación de tarjeta.");
+      //console.log("recipes.mjs: Clic en botón de favorito, ignorando navegación de tarjeta.");
       return;
     }
 
     const card = e.target.closest('.recipe-card');
     if (!card) {
-      console.log("recipes.mjs: Clic no fue en una tarjeta de receta.");
+      //console.log("recipes.mjs: Clic no fue en una tarjeta de receta.");
       return;
     }
 
     const title = card.querySelector('h3').textContent;
     const recipe = allRecipes.find(r => r.title === title);
     if (!recipe) {
-      console.warn(`recipes.mjs: Receta con título '${title}' no encontrada en allRecipes.`);
+      //console.warn(`recipes.mjs: Receta con título '${title}' no encontrada en allRecipes.`);
       return;
     }
 
     const user = getLoggedInUser();
-    console.log(`recipes.mjs: Usuario actual al clic de tarjeta: ${user ? user.username : 'N/A'}`);
+    //console.log(`recipes.mjs: Usuario actual al clic de tarjeta: ${user ? user.username : 'N/A'}`);
 
     if (recipe.isPremium && !isPremiumUser(user)) {
-      console.log("recipes.mjs: Receta Premium, usuario no premium. Mostrando modal.");
+      //console.log("recipes.mjs: Receta Premium, usuario no premium. Mostrando modal.");
       showUpgradeModal();
       return;
     }
 
     const navigateToUrl = `${window.location.origin}${REPO_BASE_URL}#/receta?id=${recipe.id}`;
-    console.log(`recipes.mjs: Navegando a detalle de receta (URL completa): ${navigateToUrl}`);
+    //console.log(`recipes.mjs: Navegando a detalle de receta (URL completa): ${navigateToUrl}`);
     window.location.href = navigateToUrl;
   });
 
   function showUpgradeModal() {
-    console.log("recipes.mjs: showUpgradeModal() iniciado.");
+    //console.log("recipes.mjs: showUpgradeModal() iniciado.");
     const modal = document.createElement('div');
     modal.classList.add('modal-overlay');
     modal.innerHTML = `
@@ -239,21 +239,21 @@ export async function loadRecipes() {
       </div>
     `;
     document.body.appendChild(modal);
-    console.log("recipes.mjs: Modal de upgrade añadido al DOM.");
+    //console.log("recipes.mjs: Modal de upgrade añadido al DOM.");
     
     document.getElementById('closeModal').addEventListener('click', () => {
-      console.log("recipes.mjs: Clic en cerrar modal.");
+      //console.log("recipes.mjs: Clic en cerrar modal.");
       modal.remove();
     });
 
     modal.querySelector('.btn-upgrade').addEventListener('click', (e) => {
-      console.log("recipes.mjs: Clic en Mejorar Plan del modal.");
+      //console.log("recipes.mjs: Clic en Mejorar Plan del modal.");
       e.preventDefault(); 
       modal.remove(); 
       window.location.href = e.currentTarget.href; 
     });
-    console.log("recipes.mjs: Listeners de modal adjuntos.");
+    //console.log("recipes.mjs: Listeners de modal adjuntos.");
   }
-  console.log("recipes.mjs: loadRecipes() finalizado.");
+  //console.log("recipes.mjs: loadRecipes() finalizado.");
 }
 
