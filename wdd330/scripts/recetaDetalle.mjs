@@ -5,12 +5,14 @@ const container = document.getElementById('recipeDetailContainer');
 const handleDetailButtonClick = (event) => {
     console.log('recetaDetalle.mjs: Clic detectado en el body.', { targetId: event.target.id });
     if (event.target.id === 'volverBtn') {
-        window.location.href = '/#/recetas'; 
-        console.log('recetaDetalle.mjs: Redirigiendo a /#/recetas');
+        const navigateBackUrl = `${window.location.origin}${REPO_BASE_URL}#/recetas`;
+        console.log(`recetaDetalle.mjs: Redirigiendo a Recetas (URL completa): ${navigateBackUrl}`);
+        window.location.href = navigateBackUrl;
     } 
-    else if (event.target.id === 'upgradeBtn') {
-        window.location.href = `${window.location.origin}${REPO_BASE_URL}#/suscripcion`; 
-        console.log('recetaDetalle.mjs: Redirigiendo a Mejorar Plan (suscripción).');
+    else if (event.target.id === 'upgradeBtn') { //TODO
+        const navigateUpgradeUrl = `${window.location.origin}${REPO_BASE_URL}#/suscripcion`; 
+        console.log(`recetaDetalle.mjs: Redirigiendo a Mejorar Plan (suscripción URL completa): ${navigateUpgradeUrl}`);
+        window.location.href = navigateUpgradeUrl;
     }
 };
 
