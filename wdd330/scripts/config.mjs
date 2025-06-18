@@ -1,3 +1,3 @@
-export const REPO_PATH_SEGMENT = window.location.host.includes('github.io') ? '/wdd330/' : '/';
+export const REPO_BASE_URL = window.location.host.includes('github.io') ? '/wdd330/' : '/';
 
-console.log("config.mjs: REPO_PATH_SEGMENT definida como:", REPO_PATH_SEGMENT);
+console.log("config.mjs: REPO_BASE_URL definida como:", REPO_BASE_URL);

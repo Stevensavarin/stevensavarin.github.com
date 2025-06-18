@@ -1,5 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
-import { REPO_PATH_SEGMENT } from './config.mjs';
+import { REPO_BASE_URL } from './config.mjs';
 
 export async function router() {
   console.log("router.mjs: router() iniciado.");
@@ -31,13 +31,13 @@ export async function router() {
       <section class="denied">
         <h2>Acceso denegado</h2>
         <p>Esta sección es solo para usuarios premium.</p>
-        <a href="${window.location.origin}${REPO_PATH_SEGMENT}#/dashboard" class="btn">Actualizar plan</a> 
+        <a href="${window.location.origin}${REPO_BASE_URL}#/dashboard" class="btn">Actualizar plan</a> 
       </section>`;
     return;
   }
 
   try {
-    const fullHtmlFetchUrl = `${window.location.origin}${REPO_PATH_SEGMENT}${targetRouteHtml}`;
+    const fullHtmlFetchUrl = `${window.location.origin}${REPO_BASE_URL}${targetRouteHtml}`;
     console.log(`router.mjs: Preparando fetch para HTML: ${fullHtmlFetchUrl}`);
     
     const html = await fetch(fullHtmlFetchUrl).then(res => {

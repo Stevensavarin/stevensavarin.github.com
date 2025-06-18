@@ -1,4 +1,4 @@
-import { REPO_PATH_SEGMENT } from './config.mjs'; 
+import { REPO_BASE_URL } from './config.mjs'; 
 
 const container = document.getElementById('recipeDetailContainer');
 
@@ -9,7 +9,7 @@ const handleDetailButtonClick = (event) => {
         console.log('recetaDetalle.mjs: Redirigiendo a /#/recetas');
     } 
     else if (event.target.id === 'upgradeBtn') {
-        window.location.href = `${window.location.origin}${REPO_PATH_SEGMENT}#/suscripcion`; 
+        window.location.href = `${window.location.origin}${REPO_BASE_URL}#/suscripcion`; 
         console.log('recetaDetalle.mjs: Redirigiendo a Mejorar Plan (suscripción).');
     }
 };
@@ -51,7 +51,7 @@ export async function loadRecipeDetail() {
     console.log('recetaDetalle.mjs: ¿Es usuario premium?', userIsPremium);
 
     try {
-        const fullJsonUrl = `${window.location.origin}${REPO_PATH_SEGMENT}public/data/recipes.json`;
+        const fullJsonUrl = `${window.location.origin}${REPO_BASE_URL}public/data/recipes.json`;
         console.log(`recetaDetalle.mjs: Fetching recipes.json from: ${fullJsonUrl}`);
         const res = await fetch(fullJsonUrl); 
         if (!res.ok) {
@@ -87,7 +87,7 @@ export async function loadRecipeDetail() {
                 currentContainer.innerHTML = `
                     <div class="recipe-detail">
                       <h1>${recipe.title}</h1>
-                      <img src="${window.location.origin}${REPO_PATH_SEGMENT}${recipe.image}" alt="${recipe.title}"> 
+                      <img src="${window.location.origin}${REPO_BASE_URL}${recipe.image}" alt="${recipe.title}"> 
                       <p><strong>Tiempo:</strong> ${recipe.time}</p>
                       <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
                       <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
