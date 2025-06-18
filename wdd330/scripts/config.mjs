@@ -1,2 +1,3 @@
-export const REPO_BASE_URL = '';
-console.log("REPO_BASE_URL definida:", REPO_BASE_URL);
+export const REPO_BASE_URL = window.location.host.includes('github.io') ? '/wdd330/' : '';
+
+console.log("config.mjs: REPO_BASE_URL definida como:", REPO_BASE_URL);
