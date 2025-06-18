@@ -1,4 +1,5 @@
 import { getLoggedInUser, isPremiumUser } from './authHelpers.mjs';
+import { BASE_URL } from './config.mjs';
 
 export async function loadRecipes() {
   const container = document.getElementById('recipesContainer');
@@ -14,13 +15,34 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    const res = await fetch('./public/data/recipes.json');
+    const res = await fetch(`${BASE_URL}/public/data/recipes.json`);
     allRecipes = await res.json();
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
   } catch (err) {
     container.innerHTML = '<p>Error al cargar las recetas.</p>';
     console.error("Error al cargar recipes.json:", err);
+  }
+
+  const handleFavoriteButtonClick = (event) => {
+    const btn = event.target.closest('.favorite-btn');
+    if (btn) {
+      const id = parseInt(btn.dataset.id);
+      let currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      if (currentFavorites.includes(id)) {
+        currentFavorites = currentFavorites.filter(favId => favId !== id);
+      } else {
+        currentFavorites.push(id);
+      }
+
+      localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+      applyFiltersAndSort();
+    }
+  };
+
+  if (container) {
+      container.addEventListener('click', handleFavoriteButtonClick);
   }
 
   searchInput.addEventListener('input', applyFiltersAndSort);
@@ -100,7 +122,7 @@ export async function loadRecipes() {
   }
 
   function displayRecipes(recetas) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Obtener favoritos para el corazón
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     if (recetas.length === 0) {
       container.innerHTML = '<p class="no-recipes-message">No se encontraron recetas con los filtros aplicados.</p>';
@@ -108,10 +130,10 @@ export async function loadRecipes() {
     }
 
     container.innerHTML = recetas.map(recipe => {
-      const isFavorite = favorites.includes(recipe.id); // Verificar si la receta es favorita
+      const isFavorite = favorites.includes(recipe.id);
       return `
         <div class="recipe-card ${recipe.isPremium ? 'premium' : ''}">
-          <img src="${recipe.image}" alt="${recipe.title}">
+          <img src="${BASE_URL}/${recipe.image}" alt="${recipe.title}">
           <h3>${recipe.title}</h3>
           <p><strong>Tiempo:</strong> ${recipe.time}</p>
           <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
@@ -124,24 +146,6 @@ export async function loadRecipes() {
         </div>
       `;
     }).join('');
-
-    document.querySelectorAll('.favorite-btn').forEach(btn => {
-      btn.addEventListener('click', (event) => {
-        const id = parseInt(event.currentTarget.dataset.id);
-        let currentFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-        if (currentFavorites.includes(id)) {
-          // Si ya es favorito, quitarlo
-          currentFavorites = currentFavorites.filter(favId => favId !== id);
-        } else {
-          // Si no es favorito, agregarlo
-          currentFavorites.push(id);
-        }
-
-        localStorage.setItem('favorites', JSON.stringify(currentFavorites));
-        applyFiltersAndSort();
-      });
-    });
   }
 
   function populateCategoryFilter(recipes) {
@@ -156,12 +160,12 @@ export async function loadRecipes() {
   }
 
   document.getElementById('recipesContainer').addEventListener('click', (e) => {
-    const card = e.target.closest('.recipe-card');
-    if (!card) return;
-
     if (e.target.classList.contains('favorite-btn')) {
       return;
     }
+
+    const card = e.target.closest('.recipe-card');
+    if (!card) return;
 
     const title = card.querySelector('h3').textContent;
     const recipe = allRecipes.find(r => r.title === title);
@@ -177,20 +181,26 @@ export async function loadRecipes() {
     window.location.href = `/#/receta?id=${recipe.id}`;
   });
 
-  function showUpgradeModal() {
+   function showUpgradeModal() {
     const modal = document.createElement('div');
     modal.classList.add('modal-overlay');
     modal.innerHTML = `
       <div class="modal">
         <h2>¡Contenido Premium!</h2>
         <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
-        <a href="/#/dashboard" class="btn-upgrade">Mejorar Plan</a>
+        <a href="${BASE_URL}/#/login" class="btn-upgrade">Mejorar Plan</a>
         <button id="closeModal">Cerrar</button>
       </div>
     `;
     document.body.appendChild(modal);
     document.getElementById('closeModal').addEventListener('click', () => {
       modal.remove();
+    });
+    
+    modal.querySelector('.btn-upgrade').addEventListener('click', (e) => {
+      e.preventDefault(); 
+      modal.remove(); 
+      window.location.href = e.currentTarget.href;
     });
   }
 }

@@ -1,68 +1,74 @@
-// const container = document.getElementById('recipeDetailContainer');
-// const user = JSON.parse(localStorage.getItem('user'));
-// const userIsPremium = user && (user.isPremium || (user.roles && user.roles.includes('premium')));
-let isListenerAttached = false;
+// scripts/recetaDetalle.mjs
+import { BASE_URL } from './config.mjs'; 
+
+const container = document.getElementById('recipeDetailContainer');
 
 const handleDetailButtonClick = (event) => {
+    console.log('recetaDetalle.mjs: Clic detectado en el body.', { targetId: event.target.id });
     if (event.target.id === 'volverBtn') {
-        console.log('Botón "Volver a Recetas" clicado.');
-        window.location.href = '/#/recetas';
-        console.log('Navegación solicitada a: /#/recetas');
-    } else if (event.target.id === 'upgradeBtn') {
-        console.log('Botón "Mejorar Plan" clicado.');
-        window.location.href = '/#/login';
-        console.log('Navegación solicitada a: /#/login');
+        window.location.href = '/#/recetas'; 
+        console.log('recetaDetalle.mjs: Redirigiendo a /#/recetas');
+    } 
+    else if (event.target.id === 'upgradeBtn') {
+        window.location.href = `${BASE_URL}/#/suscripcion`; 
+        console.log('recetaDetalle.mjs: Redirigiendo a Mejorar Plan');
     }
 };
 
+let isDetailListenerAttached = false;
+
 export async function loadRecipeDetail() {
-    const container = document.getElementById('recipeDetailContainer');
-    const user = JSON.parse(localStorage.getItem('user'));
-    const userIsPremium = user && (user.isPremium || (user.roles && user.roles.includes('premium')));
+    console.log('recetaDetalle.mjs: loadRecipeDetail() iniciado.');
 
-    if (container && !isListenerAttached) {
-        container.addEventListener('click', handleDetailButtonClick);
-        isListenerAttached = true;
-        console.log("Listener de detalle de receta adjuntado al container.");
-    } else if (!container) {
-        console.error("Error: recipeDetailContainer no encontrado al intentar adjuntar listener.");
+    const currentContainer = document.getElementById('recipeDetailContainer'); // Obtener la referencia actual
+    console.log('recetaDetalle.mjs: recipeDetailContainer actual:', currentContainer);
+
+    if (!isDetailListenerAttached) {
+        document.body.addEventListener('click', handleDetailButtonClick);
+        isDetailListenerAttached = true;
+        console.log("recetaDetalle.mjs: Listener de delegación adjunto al body por primera vez.");
     }
-
 
     const hash = window.location.hash;
     const queryStringInHash = hash.split('?')[1];
+    console.log('recetaDetalle.mjs: Hash:', hash, 'QueryString en Hash:', queryStringInHash);
 
     let id = null;
     if (queryStringInHash) {
         const params = new URLSearchParams(queryStringInHash);
         id = parseInt(params.get('id'));
+        console.log('recetaDetalle.mjs: ID extraído:', id);
     }
 
     if (isNaN(id) || id === null) {
-        if (container) container.innerHTML = '<p>ID de receta no válido.</p>';
-        console.error("ID de receta no válido o ausente en la URL del hash.");
+        if (currentContainer) currentContainer.innerHTML = '<p>ID de receta no válido.</p>';
+        console.error("recetaDetalle.mjs: ID de receta no válido o ausente en la URL del hash.");
         return;
     }
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userIsPremium = user && (user.isPremium || (user.roles && user.roles.includes('premium')));
+
+    console.log('recetaDetalle.mjs: User desde script:', user); 
+    console.log('recetaDetalle.mjs: ¿Es usuario premium?', userIsPremium);
+
     try {
-        const res = await fetch('./public/data/recipes.json');
+        console.log(`recetaDetalle.mjs: Cargando recipes.json desde ${BASE_URL}/public/data/recipes.json`);
+        const res = await fetch(`${BASE_URL}/public/data/recipes.json`);
         const data = await res.json();
         const recipe = data.find(r => r.id === id);
+        console.log('recetaDetalle.mjs: Receta encontrada:', recipe);
 
         if (!recipe) {
-            if (container) container.innerHTML = '<p>Receta no encontrada.</p>';
-            console.warn(`Receta con ID ${id} no encontrada.`);
+            if (currentContainer) currentContainer.innerHTML = '<p>Receta no encontrada.</p>';
+            console.warn(`recetaDetalle.mjs: Receta con ID ${id} no encontrada.`);
             return;
         }
 
-        // Logs para depuración
-        console.log('User desde script:', user);
-        console.log('¿Es usuario premium?', userIsPremium);
-
-
         if (recipe.isPremium && !userIsPremium) {
-            if (container) { // Asegurarse de que container existe antes de manipular innerHTML
-                container.innerHTML = `
+            console.log('recetaDetalle.mjs: Receta Premium detectada, usuario NO premium. Mostrando modal.');
+            if (currentContainer) {
+                currentContainer.innerHTML = `
                     <div class="premium-warning">
                       <h2>🔒 ¡Contenido Premium!</h2>
                       <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
@@ -71,12 +77,14 @@ export async function loadRecipeDetail() {
                     </div>
                 `;
             }
-        } else {
-            if (container) { // Asegurarse de que container existe antes de manipular innerHTML
-                container.innerHTML = `
+        } 
+        else {
+            console.log('recetaDetalle.mjs: Mostrando detalles de la receta.');
+            if (currentContainer) {
+                currentContainer.innerHTML = `
                     <div class="recipe-detail">
                       <h1>${recipe.title}</h1>
-                      <img src="/${recipe.image}" alt="${recipe.title}">
+                      <img src="${BASE_URL}/${recipe.image}" alt="${recipe.title}"> 
                       <p><strong>Tiempo:</strong> ${recipe.time}</p>
                       <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
                       <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
@@ -92,9 +100,10 @@ export async function loadRecipeDetail() {
         }
 
     } catch (err) {
-        console.error("Error al cargar la receta:", err);
-        if (container) container.innerHTML = '<p>Hubo un error al cargar la receta.</p>';
+        console.error("recetaDetalle.mjs: Error al cargar la receta:", err);
+        if (currentContainer) currentContainer.innerHTML = '<p>Hubo un error al cargar la receta.</p>';
     }
+    console.log('recetaDetalle.mjs: loadRecipeDetail() finalizado.');
 }
 
 // loadRecipeDetail();
