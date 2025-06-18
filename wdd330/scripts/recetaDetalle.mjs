@@ -9,7 +9,7 @@ const handleDetailButtonClick = (event) => {
         console.log(`recetaDetalle.mjs: Redirigiendo a Recetas (URL completa): ${navigateBackUrl}`);
         window.location.href = navigateBackUrl;
     } 
-    else if (event.target.id === 'upgradeBtn') { //TODO
+    else if (event.target.id === 'upgradeBtn') {
         const navigateUpgradeUrl = `${window.location.origin}${REPO_BASE_URL}#/suscripcion`; 
         console.log(`recetaDetalle.mjs: Redirigiendo a Mejorar Plan (suscripción URL completa): ${navigateUpgradeUrl}`);
         window.location.href = navigateUpgradeUrl;
