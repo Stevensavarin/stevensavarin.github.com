@@ -5,7 +5,7 @@ const handleDetailButtonClick = (event) => {
         window.location.href = '/#/recetas'; 
     } 
     else if (event.target.id === 'upgradeBtn') {
-        window.location.href = '/#/suscripcion';
+        window.location.href = '/#/suscripcion'; 
     }
 };
 
@@ -37,7 +37,7 @@ export async function loadRecipeDetail() {
     const userIsPremium = user && (user.isPremium || (user.roles && user.roles.includes('premium')));
 
     try {
-        const res = await fetch('/public/data/recipes.json');
+        const res = await fetch('/public/data/recipes.json'); 
         const data = await res.json();
         const recipe = data.find(r => r.id === id);
 
