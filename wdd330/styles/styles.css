@@ -611,7 +611,7 @@ header nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/public/images/brochetas_pollo.webp');
+    background-image: url('https://i.ibb.co/Qvh0ZZRy/brochetas-pollo.webp');
     background-size: cover;
     background-position: center;
 }
@@ -640,7 +640,7 @@ header nav ul li a:hover {
 }
 
 .cta-section {
-    background-image: url('/public/images/salmon.webp');
+    background-image: url('https://i.ibb.co/NdyRfGG8/salmon.webp');
     background-size: cover;
     background-position: center;
     background-color: var(--color-dark-grey);
