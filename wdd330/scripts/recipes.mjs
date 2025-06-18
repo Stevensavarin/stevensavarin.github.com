@@ -6,7 +6,7 @@ export async function loadRecipes() {
   const sortSelect = document.getElementById('sortSelect');
   const categoryFilter = document.getElementById('categoryFilter');
   const premiumFilter = document.getElementById('premiumFilter');
-  const easyFilter = document.getElementById('easyFilter');
+  const easyFilter = document.getElementById('easyFilter'); 
   const mediumFilter = document.getElementById('mediumFilter');
   const servingsFilter = document.getElementById('servingsFilter');
   const favoritesFilter = document.getElementById('favoritesFilter');
@@ -14,7 +14,7 @@ export async function loadRecipes() {
   let allRecipes = [];
 
   try {
-    const res = await fetch('/public/data/recipes.json');
+    const res = await fetch('/public/data/recipes.json'); 
     allRecipes = await res.json();
     populateCategoryFilter(allRecipes);
     applyFiltersAndSort();
@@ -186,22 +186,22 @@ export async function loadRecipes() {
       <div class="modal">
         <h2>¡Contenido Premium!</h2>
         <p>Esta receta está disponible solo para usuarios con plan Premium.</p>
-        <a href="/#/login" class="btn-upgrade">Mejorar Plan</a>
+        <a href="/#/dashboard" class="btn-upgrade">Mejorar Plan</a> 
         <button id="closeModal">Cerrar</button>
       </div>
     `;
     document.body.appendChild(modal);
-
+    
     document.getElementById('closeModal').addEventListener('click', () => {
       modal.remove();
     });
 
     modal.querySelector('.btn-upgrade').addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.remove();
-      
+      e.preventDefault(); 
+      modal.remove(); 
       window.location.href = e.currentTarget.href; 
     });
   }
 }
+
 
