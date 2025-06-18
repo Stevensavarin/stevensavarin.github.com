@@ -1,6 +1,6 @@
 import { getLoggedInUser, logoutUser, updateNavbarAuthState } from './authHelpers.mjs';
 
-const MEDIASTACK_KEY = '96c243749ea99b5472e1a083113a7e42';
+const GNEWS_KEY = 'af0fbcf9318ebc65e31038f5e2f36c74';
 const SPOON_KEY = 'c2de76c79c9541b8b6b9dd30d7fd6c78';
 
 export function initDashboard() {
@@ -18,32 +18,38 @@ export function initDashboard() {
   loadDailyRecipe();
 }
 
-// Noticias foodie
+// Noticias de comida con GNews API
 async function loadNews() {
   try {
-    const url = `https://api.mediastack.com/v1/news?access_key=${MEDIASTACK_KEY}&languages=es&keywords=gastronomía&limit=3`;
+    const url = `https://gnews.io/api/v4/search?q=comida&lang=es&country=ES&token=${GNEWS_KEY}&max=3`; 
+    
+    console.log(`dashboard.mjs: Cargando noticias de GNews API: ${url}`);
+
     const res = await fetch(url);
     
     if (!res.ok) {
-        console.error(`Error fetching news: HTTP status ${res.status}`);
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        console.error(`dashboard.mjs: Error al cargar noticias de GNews: HTTP status ${res.status}`);
+        throw new Error(`Error HTTP! Estado: ${res.status}`);
     }
 
     const data = await res.json();
-    const items = data.data || [];
+    const articles = data.articles || [];
 
-    if (items.length === 0) {
+    if (articles.length === 0) {
       document.getElementById('news-container').innerHTML = '<li>No hay noticias disponibles.</li>';
+      console.log("dashboard.mjs: No se encontraron noticias.");
       return;
     }
 
-    document.getElementById('news-container').innerHTML = items.map(a => `
+    document.getElementById('news-container').innerHTML = articles.map(a => `
       <li class="news-item">
         <a href="${a.url}" target="_blank">${a.title}</a>
         <p>${a.description || ''}</p>
       </li>`).join('');
+    console.log("dashboard.mjs: Noticias cargadas exitosamente.");
+
   } catch (err) {
-    console.error('Error al cargar noticias:', err);
+    console.error('dashboard.mjs: Error al cargar noticias:', err);
     document.getElementById('news-container').innerHTML = `<li>Error cargando noticias.</li>`;
   }
 }
@@ -52,16 +58,22 @@ async function loadNews() {
 async function loadDailyRecipe() {
   try {
     const url = `https://api.spoonacular.com/recipes/random?apiKey=${SPOON_KEY}&number=1`;
+    
+    console.log(`dashboard.mjs: Cargando receta diaria de Spoonacular: ${url}`);
+
     const res = await fetch(url);
     
     if (!res.ok) {
-        console.error(`Error fetching daily recipe: HTTP status ${res.status}`);
-        throw new Error(`HTTP error! Status: ${res.status}`);
+        console.error(`dashboard.mjs: Error al cargar receta diaria: HTTP status ${res.status}`);
+        throw new Error(`Error HTTP! Estado: ${res.status}`);
     }
 
     const data = await res.json();
     const r = data.recipes?.[0];
-    if (!r) throw new Error('No hay receta');
+    if (!r) {
+      console.log("dashboard.mjs: No se obtuvo ninguna receta diaria.");
+      throw new Error('No hay receta');
+    }
 
     document.getElementById('daily-recipe').innerHTML = `
       <img src="${r.image}" alt="${r.title}">
@@ -69,10 +81,11 @@ async function loadDailyRecipe() {
       <p>Tiempo: ${r.readyInMinutes} min · Porciones: ${r.servings}</p>
       <a href="${r.sourceUrl}" target="_blank" class="btn">Ver receta completa</a>
     `;
+    console.log("dashboard.mjs: Receta diaria cargada exitosamente.");
+
   } catch (err) {
-    console.error('Error receta diaria:', err);
+    console.error('dashboard.mjs: Error receta diaria:', err);
     document.getElementById('daily-recipe').innerHTML = `<p>Error cargando receta.</p>`;
   }
 }
-
 
