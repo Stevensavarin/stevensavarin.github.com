@@ -1,3 +1,5 @@
+import { REPO_BASE_URL } from './config.mjs';
+
 const container = document.getElementById('recipeDetailContainer');
 
 const handleDetailButtonClick = (event) => {
@@ -5,7 +7,7 @@ const handleDetailButtonClick = (event) => {
         window.location.href = '/#/recetas'; 
     } 
     else if (event.target.id === 'upgradeBtn') {
-        window.location.href = '/#/suscripcion'; 
+        window.location.href = `${REPO_BASE_URL}#/suscripcion`;
     }
 };
 
@@ -37,7 +39,7 @@ export async function loadRecipeDetail() {
     const userIsPremium = user && (user.isPremium || (user.roles && user.roles.includes('premium')));
 
     try {
-        const res = await fetch('/public/data/recipes.json'); 
+        const res = await fetch(`${REPO_BASE_URL}public/data/recipes.json`); 
         const data = await res.json();
         const recipe = data.find(r => r.id === id);
 
@@ -63,7 +65,8 @@ export async function loadRecipeDetail() {
                 currentContainer.innerHTML = `
                     <div class="recipe-detail">
                       <h1>${recipe.title}</h1>
-                      <img src="/${recipe.image}" alt="${recipe.title}"> <p><strong>Tiempo:</strong> ${recipe.time}</p>
+                      <img src="${REPO_BASE_URL}${recipe.image}" alt="${recipe.title}"> 
+                      <p><strong>Tiempo:</strong> ${recipe.time}</p>
                       <p><strong>Dificultad:</strong> ${recipe.difficulty}</p>
                       <p><strong>Raciones:</strong> ${recipe.servings || 'N/A'}</p>
                       <p><strong>Categoría:</strong> ${recipe.category}</p>
@@ -82,5 +85,6 @@ export async function loadRecipeDetail() {
         if (currentContainer) currentContainer.innerHTML = '<p>Hubo un error al cargar la receta.</p>';
     }
 }
+
 // loadRecipeDetail();
 
