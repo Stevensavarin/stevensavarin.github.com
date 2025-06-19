@@ -1,4 +1,4 @@
-export function initRecetas() {
+/*export function initRecetas() {
   const recetaCards = document.querySelectorAll('.receta-card');
 
   // Obtener el usuario desde localStorage
@@ -37,3 +37,5 @@ function mostrarModalUpgrade() {
     modal.remove();
   });
 }
+*/
+
